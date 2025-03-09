@@ -2,468 +2,1366 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coming Soon - FitLife</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <style>
-      /* Core Styles */
-      :root {
-        --primary: #ff3366;
-        --secondary: #2e3192;
-        --text-light: rgba(255, 255, 255, 0.7);
-        --bg-dark: #0a0a0a;
-        --transition: all 0.3s ease;
-      }
+    <title>Dus - FitLife Gym</title>
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+    <!-- Primary Meta Tags -->
+    <meta
+      name="title"
+      content="FitLife - Professional Gym & Personal Training Services"
+    />
+    <meta
+      name="description"
+      content="Transform your life at FitLife with personalized training, group classes, nutrition planning, fitness assessments, and effective weight loss programs. Expert guidance by Dus Mamud."
+    />
+    <meta name="author" content="Dus Mamud" />
+    <meta
+      name="keywords"
+      content="FitLife, gym, personal training, group fitness classes, nutrition planning, fitness assessment, weight loss programs, personal trainer, fitness center, workout, health club, Dus Mamud"
+    />
 
-      body {
-        font-family: "GeneralSans", sans-serif;
-        background: var(--bg-dark);
-        color: #ffffff;
-        line-height: 1.6;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
-        overflow-x: hidden;
-      }
+    <!-- Additional SEO Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="generator" content="Visual Studio Code" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="canonical" href="https://beingdusmamud.github.io/FitLife/" />
 
-      /* Construction Container */
-      .construction-container {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 40px 20px;
-        position: relative;
-      }
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://beingdusmamud.github.io/FitLife/"
+    />
+    <meta
+      property="og:title"
+      content="FitLife - Professional Gym & Personal Training Services"
+    />
+    <meta
+      property="og:description"
+      content="Transform your life at FitLife with personalized training, group classes, nutrition planning, fitness assessments, and effective weight loss programs."
+    />
+    <meta
+      property="og:image"
+      content="https://github.com/beingdusmamud/Portfolio-Website-Design/blob/ebcdc2886b356f0d1a985fa756128959ade0f0be/profile-pic.jpg"
+    />
 
-      /* Header Content */
-      .construction-header {
-        text-align: center;
-        margin-bottom: 60px;
-        position: relative;
-      }
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://github.com/beingdusmamud/Portfolio-Website-Design/blob/ebcdc2886b356f0d1a985fa756128959ade0f0be/profile-pic.jpg"
+    />
+    <meta
+      property="twitter:title"
+      content="FitLife - Professional Gym & Personal Training Services"
+    />
+    <meta
+      property="twitter:description"
+      content="Transform your life at FitLife with personalized training, group classes, nutrition planning, fitness assessments, and effective weight loss programs."
+    />
+    <meta
+      property="twitter:image"
+      content="https://github.com/beingdusmamud/Portfolio-Website-Design/blob/ebcdc2886b356f0d1a985fa756128959ade0f0be/profile-pic.jpg"
+    />
 
-      .logo {
-        width: 120px;
-        height: auto;
-        margin-bottom: 30px;
-        animation: pulse 2s infinite;
-      }
+    <!-- Additional SEO Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <link rel="canonical" href="https://beingdusmamud.github.io/FitLife/" />
 
-      .construction-title {
-        font-size: clamp(36px, 5vw, 56px);
-        font-weight: 800;
-        margin-bottom: 20px;
-        background: linear-gradient(135deg, var(--primary), #ff6b98);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeUp 0.6s ease forwards;
-      }
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/fitlife-icon.png" />
 
-      .construction-description {
-        font-size: clamp(16px, 2vw, 20px);
-        color: var(--text-light);
-        max-width: 600px;
-        margin: 0 auto 40px;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeUp 0.6s ease forwards 0.2s;
-      }
+    <link rel="stylesheet" href="style.css" />
 
-      /* Progress Bar */
-      .progress-container {
-        max-width: 600px;
-        margin: 0 auto 60px;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeUp 0.6s ease forwards 0.4s;
-      }
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "HealthClub",
+          "name": "FitLife",
+          "image": "https://github.com/beingdusmamud/FitLife/blob/db313beb344b7bea353c49bf2567788f1839b2b1/assets/banner.png",
+          "url": "https://beingdusmamud.github.io/FitLife/",
+          "telephone": "+91 123 321 2005",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "LNB Road",
+            "addressLocality": "Bongaigaon",
+            "addressRegion": "Assam",
+            "postalCode": "783380",
+            "addressCountry": "India"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "26.4769",
+            "longitude": "90.5584"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+              ],
+              "opens": "06:00",
+              "closes": "22:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Saturday", "Sunday"],
+              "opens": "08:00",
+              "closes": "20:00"
+            }
+          ],
+          "founder": {
+            "@type": "Person",
+            "name": "Dus Mamud",
+            "jobTitle": "Founder & Owner"
+          },
+          "description": "Professional gym offering personal training, group classes, nutrition planning, fitness assessments, and weight loss programs.",
+          "priceRange": "₹₹",
+          "offers": {
+            "@type": "Offer",
+            "name": "Gym Services",
+            "priceCurrency": "INR",
+            "itemOffered": [
+              {
+                "@type": "Service",
+                "name": "Personal Training",
+                "description": "One-on-one customized training sessions"
+              },
+              {
+                "@type": "Service",
+                "name": "Group Classes",
+                "description": "Various group fitness sessions"
+              },
+              {
+                "@type": "Service",
+                "name": "Nutrition Planning",
+                "description": "Personalized nutrition guidance"
+              },
+              {
+                "@type": "Service",
+                "name": "Fitness Assessment",
+                "description": "Comprehensive fitness evaluation"
+              },
+              {
+                "@type": "Service",
+                "name": "Weight Loss Programs",
+                "description": "Structured weight management plans"
+              }
+            ]
+            "priceSpecification": [
+          {
+              "@type": "PriceSpecification",
+              "name": "Monthly Membership",
+              "price": "800-1500"
+          },
+          {
+              "@type": "PriceSpecification",
+              "name": "Quarterly Membership",
+              "price": "2000-3500"
+          },
+          {
+              "@type": "PriceSpecification",
+              "name": "Annual Membership",
+              "price": "7000-12000"
+          },
+          {
+              "@type": "PriceSpecification",
+              "name": "Personal Training (per session)",
+              "price": "300-500"
+          }
+      ]
+          },
+          "sameAs": [
+            "https://www.instagram.com/dvmx_19",
+            "https://www.facebook.com/dusmamud01/",
+            "https://www.youtube.com/@dus-mamud"
 
-      .progress-bar {
-        height: 6px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 3px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .progress-fill {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        background: var(--primary);
-        width: 75%;
-        border-radius: 3px;
-        animation: progressAnimation 2s ease-out;
-      }
-
-      .progress-status {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 10px;
-        color: var(--text-light);
-        font-size: 14px;
-      }
-
-      /* Countdown Timer */
-      .countdown {
-        display: flex;
-        justify-content: center;
-        gap: clamp(20px, 4vw, 40px);
-        margin-bottom: 60px;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeUp 0.6s ease forwards 0.6s;
-      }
-
-      .countdown-item {
-        text-align: center;
-      }
-
-      .countdown-number {
-        font-size: clamp(36px, 5vw, 64px);
-        font-weight: 700;
-        color: var(--primary);
-        line-height: 1;
-        margin-bottom: 10px;
-        position: relative;
-      }
-
-      .countdown-label {
-        color: var(--text-light);
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-      }
-
-      /* Newsletter Form */
-      .newsletter {
-        max-width: 500px;
-        margin: 0 auto;
-        text-align: center;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeUp 0.6s ease forwards 0.8s;
-      }
-
-      .newsletter-title {
-        font-size: 24px;
-        margin-bottom: 20px;
-      }
-
-      .newsletter-form {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 20px;
-      }
-
-      .newsletter-input {
-        flex: 1;
-        padding: 16px 24px;
-        border-radius: 50px;
-        border: none;
-        background: rgba(255, 255, 255, 0.05);
-        color: white;
-        font-size: 16px;
-        transition: var(--transition);
-      }
-
-      .newsletter-input:focus {
-        outline: none;
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      .newsletter-button {
-        padding: 16px 32px;
-        border-radius: 50px;
-        border: none;
-        background: var(--primary);
-        color: white;
-        font-weight: 600;
-        cursor: pointer;
-        transition: var(--transition);
-      }
-
-      .newsletter-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(255, 51, 102, 0.2);
-      }
-
-      /* Social Links */
-      .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin-top: 40px;
-      }
-
-      .social-link {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.05);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 20px;
-        transition: var(--transition);
-        text-decoration: none;
-      }
-
-      .social-link:hover {
-        background: var(--primary);
-        transform: translateY(-5px);
-      }
-
-      /* Background Elements */
-      .construction-shapes {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: -1;
-      }
-
-      .shape {
-        position: absolute;
-        border-radius: 50%;
-        background: var(--primary);
-        opacity: 0.1;
-        animation: float 20s infinite;
-      }
-
-      /* Success Message */
-      .success-message {
-        display: none;
-        background: rgba(40, 167, 69, 0.1);
-        border: 1px solid rgba(40, 167, 69, 0.2);
-        color: #28a745;
-        padding: 10px 20px;
-        border-radius: 50px;
-        margin-top: 20px;
-      }
-
-      /* Animations */
-      @keyframes fadeUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
+          ]
         }
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.05);
-        }
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translate(0, 0);
-        }
-        50% {
-          transform: translate(20px, -20px);
-        }
-      }
-
-      @keyframes progressAnimation {
-        from {
-          width: 0;
-        }
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .construction-container {
-          padding: 20px;
-        }
-
-        .newsletter-form {
-          flex-direction: column;
-        }
-
-        .newsletter-button {
-          width: 100%;
-        }
-
-        .countdown {
-          gap: 20px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .countdown-number {
-          font-size: 36px;
-        }
-
-        .countdown-label {
-          font-size: 12px;
-        }
-      }
-    </style>
+    </script>
   </head>
   <body>
-    <div class="construction-container">
-      <!-- Header Content -->
-      <header class="construction-header">
-        <img src="assets/FitLife(1).png" alt="FitnessHub Logo" class="logo" />
-        <h1 class="construction-title">Something Amazing is Coming</h1>
-        <p class="construction-description">
-          We're working hard to bring you a new and improved fitness experience.
-          Stay tuned for the big reveal!
-        </p>
-      </header>
-
-      <!-- Progress Bar -->
-      <div class="progress-container">
-        <div class="progress-bar">
-          <div class="progress-fill"></div>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <img src="assets/fitlife-icon.png" alt="FitLife Gym" />
+          <a href="index.html"><h1>FitLife</h1></a>
         </div>
-        <div class="progress-status">
-          <span>Progress</span>
-          <span>75% Complete</span>
+
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="service.html" class="nav-link">Services</a>
+          </li>
+          <li class="nav-item">
+            <a href="trainers.html" class="nav-link">Trainers</a>
+          </li>
+          <li class="nav-item">
+            <a href="pricing.html" class="nav-link">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link nav-contact">Contact Us</a>
+          </li>
+        </ul>
+
+        <button class="menu-toggle" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section HTML -->
+    <!-- Hero Section HTML -->
+    <section class="fitpro-hero" id="heroSection">
+      <div class="fitpro-hero__overlay"></div>
+      <div class="fitpro-hero__particles" id="particles"></div>
+
+      <div class="fitpro-hero__wrapper">
+        <div class="fitpro-hero__content">
+          <div class="fitpro-hero__text-content" data-aos="fade-up">
+            <span class="fitpro-hero__label">Elite Fitness Experience</span>
+            <h1 class="fitpro-hero__title">
+              <span class="fitpro-hero__title-line">Transform</span>
+              <span class="fitpro-hero__title-line">Your Limits</span>
+              <span
+                class="fitpro-hero__title-animated"
+                id="changingText"
+              ></span>
+            </h1>
+            <p class="fitpro-hero__description">
+              Experience cutting-edge training methodologies and personalized
+              coaching in a state-of-the-art facility designed for ultimate
+              performance.
+            </p>
+          </div>
+
+          <div
+            class="fitpro-hero__cta-container"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <a href="#services" class="fitpro-hero__cta-primary">
+              <span class="fitpro-hero__cta-text">Start Your Journey</span>
+              <span class="fitpro-hero__cta-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                  <path
+                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                  />
+                </svg>
+              </span>
+            </a>
+            <button class="fitpro-hero__cta-secondary" id="watchVideo">
+              <span class="fitpro-hero__play-icon"></span>
+              Watch Video
+            </button>
+          </div>
+
+          <div
+            class="fitpro-hero__stats"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="fitpro-hero__stat-item">
+              <span class="fitpro-hero__stat-number" data-count="1500">0</span>
+              <span class="fitpro-hero__stat-label">Active Members</span>
+            </div>
+            <div class="fitpro-hero__stat-item">
+              <span class="fitpro-hero__stat-number" data-count="50">0</span>
+              <span class="fitpro-hero__stat-label">Expert Trainers</span>
+            </div>
+            <div class="fitpro-hero__stat-item">
+              <span class="fitpro-hero__stat-number" data-count="100">0</span>
+              <span class="fitpro-hero__stat-label">Weekly Classes</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Countdown Timer -->
-      <div class="countdown">
-        <div class="countdown-item">
-          <div class="countdown-number" id="days">00</div>
-          <div class="countdown-label">Days</div>
+      <div class="fitpro-hero__scroll-indicator">
+        <div class="fitpro-hero__mouse">
+          <div class="fitpro-hero__mouse-wheel"></div>
         </div>
-        <div class="countdown-item">
-          <div class="countdown-number" id="hours">00</div>
-          <div class="countdown-label">Hours</div>
+        <span class="fitpro-hero__scroll-text">Scroll to explore</span>
+      </div>
+
+      <!-- Video Modal -->
+      <div class="fitpro-modal" id="videoModal">
+        <div class="fitpro-modal__content">
+          <button class="fitpro-modal__close" id="closeModal">&times;</button>
+          <div class="fitpro-modal__video-container">
+            <!-- YouTube iframe will be inserted here -->
+          </div>
         </div>
-        <div class="countdown-item">
-          <div class="countdown-number" id="minutes">00</div>
-          <div class="countdown-label">Minutes</div>
+      </div>
+    </section>
+    <!-- Services Section -->
+    <section class="fitpro-services" id="services">
+      <div class="fitpro-services__wrapper">
+        <!-- Section Header -->
+        <header class="fitpro-services__header" data-aos="fade-up">
+          <span class="fitpro-pricing__label">Our Services</span>
+          <h2 class="fitpro-services__title">Elite Training Programs</h2>
+          <p class="fitpro-services__subtitle">
+            Choose from our comprehensive range of specialized fitness programs
+            designed to transform your body and elevate your performance.
+          </p>
+        </header>
+
+        <!-- Services Grid -->
+        <div class="fitpro-services__grid">
+          <!-- Strength Training -->
+          <article class="fitpro-service-card" data-aos="fade-up">
+            <div class="fitpro-service-card__content">
+              <div class="fitpro-service-card__icon">
+                <svg width="40" height="40" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"
+                  />
+                </svg>
+              </div>
+              <h3 class="fitpro-service-card__title">Strength Training</h3>
+              <p class="fitpro-service-card__description">
+                Build lean muscle mass and increase your strength with our
+                comprehensive weight training programs led by expert coaches.
+              </p>
+              <ul class="fitpro-service-card__features">
+                <li>Custom workout plans</li>
+                <li>Form correction</li>
+                <li>Progressive overload</li>
+                <li>Nutrition guidance</li>
+              </ul>
+              <a href="#strength" class="fitpro-service-card__link">
+                Learn More
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div class="fitpro-service-card__bg"></div>
+          </article>
+
+          <!-- Cardio Performance -->
+          <article
+            class="fitpro-service-card"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="fitpro-service-card__content">
+              <div class="fitpro-service-card__icon">
+                <svg width="40" height="40" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"
+                  />
+                </svg>
+              </div>
+              <h3 class="fitpro-service-card__title">Cardio Performance</h3>
+              <p class="fitpro-service-card__description">
+                Enhance your endurance and cardiovascular health with our
+                state-of-the-art equipment and guided HIIT sessions.
+              </p>
+              <ul class="fitpro-service-card__features">
+                <li>HIIT workouts</li>
+                <li>Endurance training</li>
+                <li>Heart rate monitoring</li>
+                <li>Performance tracking</li>
+              </ul>
+              <a href="#cardio" class="fitpro-service-card__link">
+                Learn More
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div class="fitpro-service-card__bg"></div>
+          </article>
+
+          <!-- Yoga & Flexibility -->
+          <article
+            class="fitpro-service-card"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="fitpro-service-card__content">
+              <div class="fitpro-service-card__icon">
+                <svg width="40" height="40" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M13 2v9h9v2h-9v9h-2v-9H2v-2h9V2h2z"
+                  />
+                </svg>
+              </div>
+              <h3 class="fitpro-service-card__title">Yoga & Flexibility</h3>
+              <p class="fitpro-service-card__description">
+                Find balance and improve flexibility with our expert-led yoga
+                classes designed for all skill levels.
+              </p>
+              <ul class="fitpro-service-card__features">
+                <li>Multiple yoga styles</li>
+                <li>Meditation sessions</li>
+                <li>Flexibility training</li>
+                <li>Mind-body balance</li>
+              </ul>
+              <a href="#yoga" class="fitpro-service-card__link">
+                Learn More
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div class="fitpro-service-card__bg"></div>
+          </article>
+
+          <!-- Personal Coaching -->
+          <article
+            class="fitpro-service-card"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="fitpro-service-card__content">
+              <div class="fitpro-service-card__icon">
+                <svg width="40" height="40" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                  />
+                </svg>
+              </div>
+              <h3 class="fitpro-service-card__title">Personal Coaching</h3>
+              <p class="fitpro-service-card__description">
+                Get personalized attention and achieve your fitness goals faster
+                with our certified personal trainers.
+              </p>
+              <ul class="fitpro-service-card__features">
+                <li>1-on-1 training</li>
+                <li>Custom programs</li>
+                <li>Progress tracking</li>
+                <li>Lifestyle coaching</li>
+              </ul>
+              <a href="#coaching" class="fitpro-service-card__link">
+                Learn More
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div class="fitpro-service-card__bg"></div>
+          </article>
         </div>
-        <div class="countdown-item">
-          <div class="countdown-number" id="seconds">00</div>
-          <div class="countdown-label">Seconds</div>
+      </div>
+    </section>
+
+    <section class="fitpro-pricing" id="pricing">
+      <!-- Background Elements -->
+      <div class="fitpro-pricing__bg-circle fitpro-pricing__bg-circle--1"></div>
+      <div class="fitpro-pricing__bg-circle fitpro-pricing__bg-circle--2"></div>
+
+      <div class="fitpro-pricing__wrapper">
+        <!-- Section Header -->
+        <header class="fitpro-pricing__header" data-aos="fade-up">
+          <span class="fitpro-pricing__label">Membership Plans</span>
+          <h2 class="fitpro-pricing__title">Choose Your Perfect Plan</h2>
+          <p class="fitpro-pricing__subtitle">
+            Select from our flexible membership options designed to fit your
+            fitness journey and budget. Join our community and start
+            transforming your life today.
+          </p>
+        </header>
+
+        <!-- Pricing Grid -->
+        <div class="fitpro-pricing__grid">
+          <!-- Basic Plan -->
+          <article class="fitpro-pricing-card" data-aos="fade-up">
+            <header class="fitpro-pricing-card__header">
+              <h3 class="fitpro-pricing-card__title">Basic Plan</h3>
+              <div class="fitpro-pricing-card__price">
+                <span class="fitpro-pricing-card__currency">₹</span>899
+                <span class="fitpro-pricing-card__period">/month</span>
+              </div>
+              <p class="fitpro-pricing-card__description">
+                Perfect for beginners starting their fitness journey
+              </p>
+            </header>
+
+            <ul class="fitpro-pricing-card__features">
+              <li class="fitpro-pricing-card__feature">
+                <svg
+                  class="fitpro-pricing-card__feature-icon"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                  />
+                </svg>
+                Access to gym facilities
+              </li>
+              <li class="fitpro-pricing-card__feature">
+                <svg
+                  class="fitpro-pricing-card__feature-icon"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                  />
+                </svg>
+                Basic equipment usage
+              </li>
+              <li class="fitpro-pricing-card__feature">
+                <svg
+                  class="fitpro-pricing-card__feature-icon"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                  />
+                </svg>
+                2 group classes per week
+              </li>
+              <li class="fitpro-pricing-card__feature">
+                <svg
+                  class="fitpro-pricing-card__feature-icon"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                  />
+                </svg>
+                Locker room access
+              </li>
+            </ul>
+
+            <a href="#signup" class="fitpro-pricing-card__cta"> Get Started </a>
+          </article>
+
+          <!-- Standard Plan -->
+          <article
+            class="fitpro-pricing-card fitpro-pricing-card--popular"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <header class="fitpro-pricing-card__header">
+              <h3 class="fitpro-pricing-card__title">Standard Plan</h3>
+              <div class="fitpro-pricing-card__price">
+                <span class="fitpro-pricing-card__currency">₹</span>1599
+                <span class="fitpro-pricing-card__period">/month</span>
+              </div>
+              <p class="fitpro-pricing-card__description">
+                Most popular choice for fitness enthusiasts
+              </p>
+            </header>
+
+            <ul class="fitpro-pricing-card__features">
+              <li class="fitpro-pricing-card__feature">
+                <svg
+                  class="fitpro-pricing-card__feature-icon"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                  />
+                </svg>
+                All Basic Plan features
+              </li>
+              <li class="fitpro-pricing-card__feature">
+                <svg
+                  class="fitpro-pricing-card__feature-icon"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                  />
+                </svg>
+                Unlimited group classes
+              </li>
+              <li class="fitpro-pricing-card__feature">
+                <svg
+                  class="fitpro-pricing-card__feature-icon"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                  />
+                </svg>
+                1 personal training session
+              </li>
+              <li class="fitpro-pricing-card__feature">
+                <svg
+                  class="fitpro-pricing-card__feature-icon"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                  />
+                </svg>
+                Nutrition consultation
+              </li>
+              <li class="fitpro-pricing-card__feature">
+                <svg
+                  class="fitpro-pricing-card__feature-icon"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                  />
+                </svg>
+                Access to spa facilities
+              </li>
+            </ul>
+
+            <a href="#signup" class="fitpro-pricing-card__cta"> Get Started </a>
+          </article>
+
+          <!-- Premium Plan -->
+          <article
+            class="fitpro-pricing-card"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <header class="fitpro-pricing-card__header">
+              <h3 class="fitpro-pricing-card__title">Premium Plan</h3>
+              <div class="fitpro-pricing-card__price">
+                <span class="fitpro-pricing-card__currency">₹</span>1999
+                <span class="fitpro-pricing-card__period">/month</span>
+              </div>
+              <p class="fitpro-pricing-card__description">
+                Ultimate fitness experience with premium perks
+              </p>
+            </header>
+
+            <ul class="fitpro-pricing-card__features">
+              <li class="fitpro-pricing-card__feature">
+                <svg
+                  class="fitpro-pricing-card__feature-icon"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                  />
+                </svg>
+                All Standard Plan features
+              </li>
+              <li class="fitpro-pricing-card__feature">
+                <svg
+                  class="fitpro-pricing-card__feature-icon"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                  />
+                </svg>
+                4 personal training sessions
+              </li>
+              <li class="fitpro-pricing-card__feature">
+                <svg
+                  class="fitpro-pricing-card__feature-icon"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                  />
+                </svg>
+                Monthly massage session
+              </li>
+              <li class="fitpro-pricing-card__feature">
+                <svg
+                  class="fitpro-pricing-card__feature-icon"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                  />
+                </svg>
+                Personalized meal plans
+              </li>
+              <li class="fitpro-pricing-card__feature">
+                <svg
+                  class="fitpro-pricing-card__feature-icon"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                  />
+                </svg>
+                VIP locker room access
+              </li>
+              <li class="fitpro-pricing-card__feature">
+                <svg
+                  class="fitpro-pricing-card__feature-icon"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                  />
+                </svg>
+                Guest passes (2/month)
+              </li>
+            </ul>
+
+            <a href="#signup" class="fitpro-pricing-card__cta"> Get Started </a>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="pro-trainers" id="trainers">
+      <!-- Background Elements -->
+      <div class="pro-trainers__bg">
+        <div class="pro-trainers__bg-circle pro-trainers__bg-circle--1"></div>
+        <div class="pro-trainers__bg-circle pro-trainers__bg-circle--2"></div>
+      </div>
+
+      <div class="pro-trainers__wrapper">
+        <!-- Section Header -->
+        <header class="pro-trainers__header" data-aos="fade-up">
+          <span class="pro-trainers__label">Expert Team</span>
+          <h2 class="pro-trainers__title">Meet Our Professional Trainers</h2>
+          <p class="pro-trainers__subtitle">
+            Work with our certified fitness experts who are passionate about
+            helping you achieve your fitness goals through personalized training
+            and expert guidance.
+          </p>
+        </header>
+
+        <!-- Trainers Grid -->
+        <div class="pro-trainers__grid">
+          <!-- Trainer 1 -->
+          <article class="trainer-card" data-aos="fade-up">
+            <div class="trainer-card__image-container">
+              <img
+                src="https://ik.imagekit.io/ec18yjhnk/vSosNdTpcuc2iN37tTle691zVDT2/a58df97d-e0ed-44f3-b0d0-5c18d62d27fc.png"
+                alt="John Mitchell"
+                class="trainer-card__image"
+              />
+            </div>
+            <div class="trainer-card__content">
+              <h3 class="trainer-card__name">John Mitchell</h3>
+              <p class="trainer-card__role">Head Performance Coach</p>
+              <div class="trainer-card__specialties">
+                <span class="trainer-card__specialty">Strength Training</span>
+                <span class="trainer-card__specialty">CrossFit</span>
+                <span class="trainer-card__specialty">Nutrition</span>
+              </div>
+              <p class="trainer-card__description">
+                15+ years of experience in performance training and athletic
+                development. Specializes in strength conditioning and functional
+                movement patterns.
+              </p>
+              <div class="trainer-card__social">
+                <a href="#" class="trainer-card__social-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="trainer-card__social-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="trainer-card__social-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Trainer 2 -->
+          <article class="trainer-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="trainer-card__image-container">
+              <img
+                src="https://ik.imagekit.io/ec18yjhnk/vSosNdTpcuc2iN37tTle691zVDT2/58d7aa6d-3acb-4738-a512-9b52ea173334.png"
+                alt="Sarah Chen"
+                class="trainer-card__image"
+              />
+            </div>
+            <div class="trainer-card__content">
+              <h3 class="trainer-card__name">Sarah Chen</h3>
+              <p class="trainer-card__role">Yoga & Mindfulness Expert</p>
+              <div class="trainer-card__specialties">
+                <span class="trainer-card__specialty">Yoga</span>
+                <span class="trainer-card__specialty">Meditation</span>
+                <span class="trainer-card__specialty">Flexibility</span>
+              </div>
+              <p class="trainer-card__description">
+                Certified yoga instructor with expertise in mindfulness and body
+                awareness. Focuses on holistic wellness and stress reduction
+                techniques.
+              </p>
+              <div class="trainer-card__social">
+                <a href="#" class="trainer-card__social-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="trainer-card__social-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="trainer-card__social-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Trainer 3 -->
+          <article class="trainer-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="trainer-card__image-container">
+              <img
+                src="https://ik.imagekit.io/ec18yjhnk/vSosNdTpcuc2iN37tTle691zVDT2/8a323e4f-eb20-4318-a469-79dca2382bc6.png"
+                alt="Marcus Thompson"
+                class="trainer-card__image"
+              />
+            </div>
+            <div class="trainer-card__content">
+              <h3 class="trainer-card__name">Marcus Thompson</h3>
+              <p class="trainer-card__role">Conditioning Specialist</p>
+              <div class="trainer-card__specialties">
+                <span class="trainer-card__specialty">HIIT</span>
+                <span class="trainer-card__specialty">Boxing</span>
+                <span class="trainer-card__specialty">Circuit Training</span>
+              </div>
+              <p class="trainer-card__description">
+                Former professional athlete turned fitness coach. Specializes in
+                high-intensity workouts and sports-specific training programs.
+              </p>
+              <div class="trainer-card__social">
+                <a href="#" class="trainer-card__social-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="trainer-card__social-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="trainer-card__social-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+      <!-- Background Elements -->
+      <div class="testimonials__bg">
+        <div class="testimonials__bg-circle testimonials__bg-circle--1"></div>
+        <div class="testimonials__bg-circle testimonials__bg-circle--2"></div>
+      </div>
+
+      <div class="testimonials__wrapper">
+        <!-- Section Header -->
+        <header class="testimonials__header" data-aos="fade-up">
+          <span class="testimonials__label">Testimonials</span>
+          <h2 class="testimonials__title">What Our Members Say</h2>
+          <p class="testimonials__subtitle">
+            Discover how our gym has transformed lives and helped members
+            achieve their fitness goals through dedicated training and support.
+          </p>
+        </header>
+
+        <!-- Testimonials Carousel -->
+        <div class="testimonials__carousel">
+          <div class="testimonials__track" id="testimonialsTrack">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card active">
+              <div class="testimonial-card__content">
+                <p class="testimonial-card__quote">
+                  "Joining this gym was the best decision I've made for my
+                  health. The trainers are incredibly knowledgeable and
+                  supportive. I've achieved results I never thought possible!"
+                </p>
+                <div class="testimonial-card__author">
+                  <div class="testimonial-card__author-image">
+                    <img
+                      src="https://ik.imagekit.io/ec18yjhnk/vSosNdTpcuc2iN37tTle691zVDT2/b2906a57-5f59-42f5-8eeb-1367774a12c5.png"
+                      alt="Sarah Johnson"
+                    />
+                  </div>
+                  <div class="testimonial-card__author-info">
+                    <h4 class="testimonial-card__author-name">Sarah Johnson</h4>
+                    <p class="testimonial-card__author-title">
+                      Member since 2022
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+              <div class="testimonial-card__content">
+                <p class="testimonial-card__quote">
+                  "The community here is amazing! Everyone is so supportive and
+                  encouraging. The facilities are top-notch, and the classes are
+                  challenging yet fun."
+                </p>
+                <div class="testimonial-card__author">
+                  <div class="testimonial-card__author-image">
+                    <img
+                      src="https://ik.imagekit.io/ec18yjhnk/vSosNdTpcuc2iN37tTle691zVDT2/8b0f73a8-d637-411f-ae5b-7c6172b5580e.png"
+                      alt="Michael Chen"
+                    />
+                  </div>
+                  <div class="testimonial-card__author-info">
+                    <h4 class="testimonial-card__author-name">Michael Chen</h4>
+                    <p class="testimonial-card__author-title">
+                      Member since 2021
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+              <div class="testimonial-card__content">
+                <p class="testimonial-card__quote">
+                  "I've tried many gyms before, but none compare to this one.
+                  The personalized attention and expert guidance have helped me
+                  surpass all my fitness goals."
+                </p>
+                <div class="testimonial-card__author">
+                  <div class="testimonial-card__author-image">
+                    <img
+                      src="https://placehold.co/200x200"
+                      alt="Emily Rodriguez"
+                    />
+                  </div>
+                  <div class="testimonial-card__author-info">
+                    <h4 class="testimonial-card__author-name">
+                      Emily Rodriguez
+                    </h4>
+                    <p class="testimonial-card__author-title">
+                      Member since 2023
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Controls -->
+          <div class="testimonials__controls">
+            <button class="testimonials__control-btn" id="prevBtn">
+              <svg viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+              </svg>
+            </button>
+            <button class="testimonials__control-btn" id="nextBtn">
+              <svg viewBox="0 0 24 24">
+                <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Indicators -->
+          <div class="testimonials__indicators" id="indicators"></div>
+        </div>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <!-- Background Elements -->
+      <div class="contact__bg">
+        <div class="contact__bg-circle contact__bg-circle--1"></div>
+        <div class="contact__bg-circle contact__bg-circle--2"></div>
+      </div>
+
+      <div class="contact__wrapper">
+        <!-- Contact Information -->
+        <div class="contact__info" data-aos="fade-right">
+          <span class="contact__label">Contact Us</span>
+          <h2 class="contact__title">Get in Touch</h2>
+          <p class="contact__description">
+            Have questions about our programs or ready to start your fitness
+            journey? Reach out to us and our team will get back to you shortly.
+          </p>
+
+          <ul class="contact__details">
+            <li class="contact__detail">
+              <div class="contact__detail-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M12 11.5A2.5 2.5 0 0 1 9.5 9 2.5 2.5 0 0 1 12 6.5 2.5 2.5 0 0 1 14.5 9 2.5 2.5 0 0 1 12 11.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z"
+                  />
+                </svg>
+              </div>
+              <div class="contact__detail-content">
+                <span class="contact__detail-label">Location</span>
+                <p class="contact__detail-value">
+                  123 LNB Street, Bongaigaon, AS 783380
+                </p>
+              </div>
+            </li>
+
+            <li class="contact__detail">
+              <div class="contact__detail-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+              </div>
+              <div class="contact__detail-content">
+                <span class="contact__detail-label">Email</span>
+                <a
+                  href="mailto:info@fitnessgym.com"
+                  class="contact__detail-value"
+                >
+                  dusxinfinity@gmail.com
+                </a>
+              </div>
+            </li>
+
+            <li class="contact__detail">
+              <div class="contact__detail-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                  />
+                </svg>
+              </div>
+              <div class="contact__detail-content">
+                <span class="contact__detail-label">Phone</span>
+                <a href="tel:+1234567890" class="contact__detail-value">
+                  (123) 456-7890
+                </a>
+              </div>
+            </li>
+
+            <li class="contact__detail">
+              <div class="contact__detail-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+                  />
+                </svg>
+              </div>
+              <div class="contact__detail-content">
+                <span class="contact__detail-label">Hours</span>
+                <p class="contact__detail-value">
+                  Mon-Fri: 6am - 10pm<br />
+                  Sat-Sun: 8am - 8pm
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact__form" data-aos="fade-left">
+          <form id="contactForm" onsubmit="return handleSubmit(event)">
+            <div class="form__group">
+              <label for="name" class="form__label">Full Name</label>
+              <input type="text" id="name" class="form__input" required />
+              <span class="form__error-message">Please enter your name</span>
+            </div>
+
+            <div class="form__group">
+              <label for="email" class="form__label">Email Address</label>
+              <input type="email" id="email" class="form__input" required />
+              <span class="form__error-message"
+                >Please enter a valid email</span
+              >
+            </div>
+
+            <div class="form__group">
+              <label for="phone" class="form__label">Phone Number</label>
+              <input type="tel" id="phone" class="form__input" required />
+              <span class="form__error-message"
+                >Please enter a valid phone number</span
+              >
+            </div>
+
+            <div class="form__group">
+              <label for="subject" class="form__label">Subject</label>
+              <input type="text" id="subject" class="form__input" required />
+              <span class="form__error-message">Please enter a subject</span>
+            </div>
+
+            <div class="form__group">
+              <label for="message" class="form__label">Message</label>
+              <textarea
+                id="message"
+                class="form__input form__textarea"
+                required
+              ></textarea>
+              <span class="form__error-message">Please enter your message</span>
+            </div>
+
+            <button type="submit" class="form__submit">Send Message</button>
+          </form>
+
+          <!-- Success Message -->
+          <div class="form__success">
+            <svg class="form__success-icon" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+              />
+            </svg>
+            <h3 class="form__success-title">Message Sent!</h3>
+            <p class="form__success-message">
+              Thank you for contacting us. We'll get back to you shortly.
+            </p>
+          </div>
         </div>
       </div>
 
-      <!-- Newsletter -->
-      <div class="newsletter">
-        <h2 class="newsletter-title">Get Notified When We Launch</h2>
-        <form class="newsletter-form" id="newsletter-form">
-          <input
-            type="email"
-            class="newsletter-input"
-            placeholder="Enter your email address"
-            required
-          />
-          <button type="submit" class="newsletter-button">Notify Me</button>
-        </form>
-        <div class="success-message">
-          Thank you! We'll notify you when we launch.
-        </div>
+      <!-- Google Map -->
+      <div class="contact__map" data-aos="fade-up">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28573.097496579385!2d90.67447563955077!3d26.495499199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375b9e8a14e4ee6b%3A0x17eb1df2a8e182bd!2sBijni%2C%20Assam!5e0!3m2!1sen!2sin!4v1709900082696!5m2!1sen!2sin"
+          width="100%"
+          height="100%"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+        >
+        </iframe>
+      </div>
+    </section>
 
-        <!-- Social Links -->
-        <div class="social-links">
-          <a href="#" class="social-link">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="#" class="social-link">
-            <i class="fab fa-x"></i>
-          </a>
-          <a href="#" class="social-link">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="#" class="social-link">
-            <i class="fab fa-youtube"></i>
-          </a>
-        </div>
+    <footer class="footer">
+      <!-- Background Elements -->
+      <div class="footer__bg">
+        <div class="footer__bg-circle footer__bg-circle--1"></div>
+        <div class="footer__bg-circle footer__bg-circle--2"></div>
       </div>
 
-      <!-- Background Shapes -->
-      <div class="construction-shapes"></div>
-    </div>
+      <div class="footer__wrapper">
+        <!-- Main Footer Content -->
+        <div class="footer__content">
+          <!-- Brand Section -->
+          <div class="footer__brand">
+            <a href="index.html" class="footer__logo">
+              <img src="assets/FitLife.png" alt="FitLife Logo" />
+            </a>
+            <p class="footer__description">
+              Your premier destination for fitness excellence. Transform your
+              life with our expert trainers and state-of-the-art facilities.
+            </p>
+            <div class="footer__social">
+              <a href="#" class="footer__social-link">
+                <svg class="footer__social-icon" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="footer__social-link">
+                <svg class="footer__social-icon" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="footer__social-link">
+                <svg class="footer__social-icon" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="footer__social-link">
+                <svg class="footer__social-icon" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19M18.5,18.5V13.2A3.26,3.26 0 0,0 15.24,9.94C14.39,9.94 13.4,10.46 12.92,11.24V10.13H10.13V18.5H12.92V13.57C12.92,12.8 13.54,12.17 14.31,12.17A1.4,1.4 0 0,1 15.71,13.57V18.5H18.5M6.88,8.56A1.68,1.68 0 0,0 8.56,6.88C8.56,5.95 7.81,5.19 6.88,5.19A1.69,1.69 0 0,0 5.19,6.88C5.19,7.81 5.95,8.56 6.88,8.56M8.27,18.5V10.13H5.5V18.5H8.27Z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
 
-    <script>
-      // Countdown Timer
-      function updateCountdown() {
-        const launchDate = new Date("2025-04-01T00:00:00").getTime();
-        const now = new Date().getTime();
-        const distance = launchDate - now;
+          <!-- Quick Links -->
+          <div class="footer__links">
+            <h3 class="footer__links-title">Quick Links</h3>
+            <ul class="footer__links-list">
+              <li class="footer__links-item">
+                <a href="index.html" class="footer__link">Home</a>
+              </li>
+              <li class="footer__links-item">
+                <a href="about-us.html" class="footer__link">About Us</a>
+              </li>
+              <li class="footer__links-item">
+                <a href="Classes.html" class="footer__link">Classes</a>
+              </li>
+              <li class="footer__links-item">
+                <a href="trainers.html" class="footer__link">Trainers</a>
+              </li>
+              <li class="footer__links-item">
+                <a href="schedule.html" class="footer__link">Schedule</a>
+              </li>
+              <li class="footer__links-item">
+                <a href="contact.html" class="footer__link">Contact</a>
+              </li>
+            </ul>
+          </div>
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          <!-- Services -->
+          <div class="footer__links">
+            <h3 class="footer__links-title">Services</h3>
+            <ul class="footer__links-list">
+              <li class="footer__links-item">
+                <a href="under-contraction.html" class="footer__link"
+                  >Personal Training</a
+                >
+              </li>
+              <li class="footer__links-item">
+                <a href="under-contraction.html" class="footer__link"
+                  >Group Classes</a
+                >
+              </li>
+              <li class="footer__links-item">
+                <a href="under-contraction.html" class="footer__link"
+                  >Nutrition Planning</a
+                >
+              </li>
+              <li class="footer__links-item">
+                <a href="under-contraction.html" class="footer__link"
+                  >Fitness Assessment</a
+                >
+              </li>
+              <li class="footer__links-item">
+                <a href="under-contraction.html" class="footer__link"
+                  >Weight Loss Programs</a
+                >
+              </li>
+              <li class="footer__links-item">
+                <a href="bmi-calculator.html" class="footer__link"
+                  >BMI calculator</a
+                >
+              </li>
+            </ul>
+          </div>
 
-        document.getElementById("days").textContent = String(days).padStart(
-          2,
-          "0"
-        );
-        document.getElementById("hours").textContent = String(hours).padStart(
-          2,
-          "0"
-        );
-        document.getElementById("minutes").textContent = String(
-          minutes
-        ).padStart(2, "0");
-        document.getElementById("seconds").textContent = String(
-          seconds
-        ).padStart(2, "0");
-      }
+          <!-- Newsletter -->
+          <div class="footer__newsletter">
+            <h3 class="footer__newsletter-title">Newsletter</h3>
+            <p class="footer__newsletter-description">
+              Subscribe to our newsletter and get the latest updates on fitness
+              tips, special offers, and upcoming events.
+            </p>
+            <form class="footer__newsletter-form" id="newsletterForm">
+              <input
+                type="email"
+                class="footer__newsletter-input"
+                placeholder="Enter your email"
+                required
+              />
+              <button type="submit" class="footer__newsletter-button">
+                Subscribe
+              </button>
+            </form>
+            <div class="newsletter-success" id="newsletterSuccess">
+              Thank you for subscribing to our newsletter!
+            </div>
+          </div>
+        </div>
 
-      setInterval(updateCountdown, 1000);
-      updateCountdown();
-
-      // Newsletter Form
-      const form = document.getElementById("newsletter-form");
-      const successMessage = document.querySelector(".success-message");
-
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        form.style.display = "none";
-        successMessage.style.display = "block";
-      });
-
-      // Generate background shapes
-      const shapes = document.querySelector(".construction-shapes");
-      const shapeCount = 10;
-
-      for (let i = 0; i < shapeCount; i++) {
-        const shape = document.createElement("div");
-        shape.classList.add("shape");
-
-        const size = Math.random() * 100 + 50;
-        shape.style.width = `${size}px`;
-        shape.style.height = `${size}px`;
-
-        shape.style.left = `${Math.random() * 100}%`;
-        shape.style.top = `${Math.random() * 100}%`;
-
-        shape.style.animationDelay = `${Math.random() * 5}s`;
-
-        shapes.appendChild(shape);
-      }
-    </script>
+        <!-- Bottom Bar -->
+        <div class="footer__bottom">
+          <p class="footer__copyright">© 2025 FitLife. All rights reserved.</p>
+          <div class="footer__bottom-links">
+            <a href="privacy-policy.html" class="footer__bottom-link"
+              >Privacy Policy</a
+            >
+            <a href="terms-of-service.html" class="footer__bottom-link"
+              >Terms of Service</a
+            >
+            <a href="404.html" class="footer__bottom-link">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="main.js"></script>
   </body>
 </html>
