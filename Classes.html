@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Fitness Classes - FitLife</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/fitlife-icon.png" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap");
+
+      /* Core Styles */
+      :root {
+        --primary: #ff3366;
+        --secondary: #2e3192;
+        --text-light: rgba(255, 255, 255, 0.7);
+        --bg-dark: #0a0a0a;
+        --bg-darker: #050505;
+        --transitions: all 0.3s ease;
+        --primary-light: #ff4d7f;
+        --dark: #0a0a0a;
+        --light: #ffffff;
+        --glass-bg: rgba(10, 10, 10, 0.92);
+        --glass-overlay: rgba(255, 255, 255, 0.03);
+
+        /* Typography */
+        --font-title: "ClashDisplay", sans-serif;
+        --font-body: "GeneralSans", sans-serif;
+
+        /* Sizes */
+        --nav-height-desktop: 90px;
+        --nav-height-mobile: 70px;
+
+        /* Effects */
+        --blur: 20px;
+        --transition: 0.4s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /* Core Styles */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: var(--nav-height-desktop);
+        z-index: 1000;
+        background: transparent;
+        transition: all var(--transition);
+      }
+
+      .nav-container {
+        max-width: 1440px;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 max(24px, 5vw);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* Logo Styles */
+      .nav-brand {
+        position: relative;
+        z-index: 1002;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .nav-brand img {
+        height: 48px;
+        width: auto;
+        border-radius: 50%;
+        transition: all var(--transition);
+      }
+
+      .nav-brand h1 {
+        font-family: "Montserrat", serif;
+        font-size: clamp(24px, 2.5vw, 32px);
+        font-weight: 700;
+        color: var(--light);
+        letter-spacing: -0.03em;
+        text-decoration: none !important;
+      }
+
+      .nav-brand a {
+        text-decoration: none;
+      }
+
+      /* Desktop Navigation */
+      .nav-menu {
+        display: flex;
+        gap: clamp(32px, 4vw, 48px);
+        align-items: center;
+        list-style: none;
+      }
+
+      .nav-link {
+        font-family: var(--font-body);
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--light);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 8px 0;
+        position: relative;
+        transition: color var(--transition);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--primary);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform var(--transition);
+      }
+
+      .nav-link:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      /* Mobile Menu Toggle */
+      .menu-toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        width: 32px;
+        height: 32px;
+        position: relative;
+        cursor: pointer;
+        z-index: 1002;
+      }
+
+      .menu-toggle span {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: var(--light);
+        transition: all var(--transition);
+      }
+
+      .menu-toggle span:nth-child(1) {
+        top: 6px;
+      }
+      .menu-toggle span:nth-child(2) {
+        top: 15px;
+      }
+      .menu-toggle span:nth-child(3) {
+        top: 24px;
+      }
+
+      /* Mobile Navigation */
+      @media screen and (max-width: 1024px) {
+        .navbar {
+          height: var(--nav-height-mobile);
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .nav-menu {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: var(--glass-bg2);
+          backdrop-filter: blur(var(--blur));
+          -webkit-backdrop-filter: blur(var(--blur));
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: clamp(32px, 5vh, 48px);
+          padding: 80px 24px;
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          transition: all var(--transition);
+        }
+
+        .nav-menu::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: var(--glass-overlay);
+          z-index: -1;
+        }
+
+        .nav-menu.active {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: all;
+        }
+
+        .nav-link {
+          font-family: var(--font-title);
+          font-size: clamp(32px, 6vw, 42px);
+          font-weight: 600;
+          text-transform: none;
+          letter-spacing: -0.02em;
+          transform: translateY(30px);
+          opacity: 0;
+          transition: all var(--transition);
+        }
+
+        .nav-menu.active .nav-link {
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+        /* Staggered Animation for Links */
+        .nav-menu.active .nav-item:nth-child(1) .nav-link {
+          transition-delay: 0.1s;
+        }
+        .nav-menu.active .nav-item:nth-child(2) .nav-link {
+          transition-delay: 0.2s;
+        }
+        .nav-menu.active .nav-item:nth-child(3) .nav-link {
+          transition-delay: 0.3s;
+        }
+        .nav-menu.active .nav-item:nth-child(4) .nav-link {
+          transition-delay: 0.4s;
+        }
+        .nav-menu.active .nav-item:nth-child(5) .nav-link {
+          transition-delay: 0.5s;
+        }
+
+        /* Active Menu Toggle */
+        .menu-toggle.active span:nth-child(1) {
+          transform: translateY(9px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+          transform: translateY(-9px) rotate(-45deg);
+        }
+      }
+
+      /* Mobile Optimizations */
+      @media screen and (max-width: 768px) {
+        .nav-brand img {
+          height: 40px;
+        }
+
+        .nav-brand h1 {
+          font-size: clamp(20px, 5vw, 24px);
+        }
+
+        .nav-menu {
+          padding: 64px 20px;
+        }
+
+        .nav-link {
+          font-size: clamp(28px, 7vw, 36px);
+        }
+      }
+
+      /* Special Contact Button */
+      .nav-contact {
+        background: var(--primary);
+        color: var(--light);
+        padding: 12px 24px;
+        border-radius: 4px;
+        font-weight: 600;
+        transition: all var(--transition);
+      }
+
+      .nav-contact:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+      }
+
+      .nav-contact::after {
+        display: none;
+      }
+
+      /* Scrolled State */
+      .navbar.scrolled {
+        background: var(--glass-bg);
+        backdrop-filter: blur(var(--blur2));
+        -webkit-backdrop-filter: blur(var(--blur2));
+        height: var(--nav-height-mobile);
+      }
+
+      .navbar.scrolled .nav-brand img {
+        height: 40px;
+      }
+
+      /* Footer Section Styles */
+      .footer {
+        background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+        padding: 80px 0 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .footer__wrapper {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 80px);
+      }
+
+      /* Main Footer Content */
+      .footer__content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 60px;
+        padding-bottom: 60px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Brand Section */
+      .footer__brand {
+        max-width: 300px;
+      }
+
+      .footer__logo {
+        display: inline-block;
+        margin-bottom: 24px;
+      }
+
+      .footer__logo img {
+        height: 40px;
+        width: auto;
+      }
+
+      .footer__description {
+        font-family: "GeneralSans", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 24px;
+      }
+
+      .footer__social {
+        display: flex;
+        gap: 16px;
+      }
+
+      .footer__social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        transition: all 0.3s ease;
+      }
+
+      .footer__social-link:hover {
+        background: #ff3366;
+        transform: translateY(-3px);
+      }
+
+      .footer__social-icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* Footer Links */
+      .footer__links {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .footer__links-title {
+        font-family: "ClashDisplay", sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 24px;
+      }
+
+      .footer__links-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer__links-item {
+        margin-bottom: 12px;
+      }
+
+      .footer__link {
+        font-family: "GeneralSans", sans-serif;
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .footer__link:hover {
+        color: #ff3366;
+        transform: translateX(5px);
+      }
+
+      /* Newsletter Section */
+      .footer__newsletter {
+        max-width: 400px;
+      }
+
+      .footer__newsletter-title {
+        font-family: "ClashDisplay", sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 16px;
+      }
+
+      .footer__newsletter-description {
+        font-family: "GeneralSans", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 24px;
+      }
+
+      .footer__newsletter-form {
+        display: flex;
+        gap: 12px;
+      }
+
+      .footer__newsletter-input {
+        flex: 1;
+        padding: 12px 16px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        font-family: "GeneralSans", sans-serif;
+        font-size: 16px;
+        color: #ffffff;
+        transition: all 0.3s ease;
+      }
+
+      .footer__newsletter-input:focus {
+        outline: none;
+        border-color: #ff3366;
+        background: rgba(255, 51, 102, 0.05);
+      }
+
+      .footer__newsletter-button {
+        padding: 12px 24px;
+        background: #ff3366;
+        border: none;
+        border-radius: 8px;
+        font-family: "GeneralSans", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .footer__newsletter-button:hover {
+        background: #ff1f4b;
+        transform: translateY(-2px);
+      }
+
+      /* Bottom Bar */
+      .footer__bottom {
+        padding: 24px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer__copyright {
+        font-family: "GeneralSans", sans-serif;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .footer__bottom-links {
+        display: flex;
+        gap: 24px;
+      }
+
+      .footer__bottom-link {
+        font-family: "GeneralSans", sans-serif;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer__bottom-link:hover {
+        color: #ff3366;
+      }
+
+      /* Background Elements */
+      .footer__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        opacity: 0.5;
+      }
+
+      .footer__bg-circle {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 51, 102, 0.1) 0%,
+          transparent 70%
+        );
+      }
+
+      .footer__bg-circle--1 {
+        width: 400px;
+        height: 400px;
+        top: -200px;
+        right: -100px;
+      }
+
+      .footer__bg-circle--2 {
+        width: 300px;
+        height: 300px;
+        bottom: -150px;
+        left: -150px;
+      }
+
+      /* Responsive Adjustments */
+      @media screen and (max-width: 768px) {
+        .footer {
+          padding-top: 60px;
+        }
+
+        .footer__content {
+          gap: 40px;
+        }
+
+        .footer__newsletter-form {
+          flex-direction: column;
+        }
+
+        .footer__bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .footer__bottom-links {
+          justify-content: center;
+        }
+      }
+
+      /* Success Message Animation */
+      @keyframes slideIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .newsletter-success {
+        display: none;
+        animation: slideIn 0.5s ease forwards;
+        color: #4caf50;
+        margin-top: 12px;
+        font-family: "GeneralSans", sans-serif;
+        font-size: 14px;
+      }
+
+      body {
+        font-family: "GeneralSans", sans-serif;
+        background: var(--bg-dark);
+        color: #ffffff;
+        line-height: 1.6;
+      }
+
+      /* Classes Hero Section */
+      .classes-hero {
+        min-height: 60vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("assets/hero.png") center/cover;
+        display: flex;
+        align-items: center;
+        padding: 120px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .classes-hero__wrapper {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 80px);
+      }
+
+      .classes-hero__content {
+        max-width: 800px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .classes-hero__label {
+        display: inline-block;
+        padding: 8px 16px;
+        background: rgba(255, 51, 102, 0.1);
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        margin-bottom: 24px;
+      }
+
+      .classes-hero__title {
+        font-family: "ClashDisplay", sans-serif;
+        font-size: clamp(40px, 5vw, 64px);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 24px;
+      }
+
+      .classes-hero__description {
+        font-size: clamp(18px, 2vw, 20px);
+        color: var(--text-light);
+        margin-bottom: 40px;
+        max-width: 600px;
+      }
+
+      /* Classes Categories */
+      .classes-categories {
+        padding: 120px 0;
+        background: var(--bg-darker);
+      }
+
+      .classes-categories__wrapper {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 80px);
+      }
+
+      .classes-categories__header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .classes-categories__title {
+        font-family: "ClashDisplay", sans-serif;
+        font-size: clamp(32px, 4vw, 48px);
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      .classes-categories__description {
+        color: var(--text-light);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .classes-categories__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .category-card {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        aspect-ratio: 3/4;
+        cursor: pointer;
+      }
+
+      .category-card__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .category-card:hover .category-card__image {
+        transform: scale(1.1);
+      }
+
+      .category-card__content {
+        position: absolute;
+        inset: 0;
+        padding: 30px;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(0, 0, 0, 0.4) 50%,
+          rgba(0, 0, 0, 0.2) 100%
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+
+      .category-card__title {
+        font-family: "ClashDisplay", sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+
+      .category-card__description {
+        color: var(--text-light);
+        font-size: 16px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: var(--transitions);
+      }
+
+      .category-card:hover .category-card__description {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Class Schedule */
+      .class-schedule {
+        padding: 120px 0;
+        background: var(--bg-dark);
+      }
+
+      .class-schedule__wrapper {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 80px);
+      }
+
+      .class-schedule__header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .schedule-filters {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+
+      .schedule-filter {
+        padding: 12px 24px;
+        background: rgba(255, 255, 255, 0.05);
+        border: none;
+        border-radius: 8px;
+        color: var(--text-light);
+        cursor: pointer;
+        transition: var(--transitions);
+      }
+
+      .schedule-filter.active,
+      .schedule-filter:hover {
+        background: var(--primary);
+        color: #ffffff;
+      }
+
+      .schedule-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+
+      .schedule-table th,
+      .schedule-table td {
+        padding: 20px;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .schedule-table th {
+        background: rgba(255, 255, 255, 0.05);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .schedule-table tr:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .class-badge {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .class-badge--strength {
+        background: rgba(255, 51, 102, 0.1);
+        color: var(--primary);
+      }
+
+      .class-badge--cardio {
+        background: rgba(46, 49, 146, 0.1);
+        color: var(--secondary);
+      }
+
+      .class-badge--yoga {
+        background: rgba(106, 27, 154, 0.1);
+        color: #6a1b9a;
+      }
+
+      /* Class Details Modal */
+      .class-modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transitions);
+        overflow: hidden;
+      }
+
+      .class-modal.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .class-modal__content {
+        background: var(--bg-darker);
+        max-width: 600px;
+        width: 100%;
+        border-radius: 20px;
+        padding: 40px;
+        position: relative;
+        transform: translateY(20px);
+        transition: var(--transitions);
+      }
+
+      .class-modal.active .class-modal__content {
+        transform: translateY(0);
+      }
+
+      .class-modal__close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: #ffffff;
+        cursor: pointer;
+        transition: var(--transitions);
+      }
+
+      .class-modal__close:hover {
+        background: var(--primary);
+      }
+
+      .class-modal__title {
+        font-family: "ClashDisplay", sans-serif;
+        font-size: 32px;
+        margin-bottom: 16px;
+      }
+
+      .class-modal__details {
+        margin-bottom: 24px;
+      }
+
+      .class-modal__detail {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .class-modal__detail-icon {
+        width: 24px;
+        height: 24px;
+        color: var(--primary);
+      }
+
+      .class-modal__description {
+        color: var(--text-light);
+        margin-bottom: 24px;
+      }
+
+      .class-modal__button {
+        width: 100%;
+        padding: 16px;
+        background: var(--primary);
+        border: none;
+        border-radius: 8px;
+        color: #ffffff;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transitions);
+      }
+
+      .class-modal__button:hover {
+        background: #ff1f4b;
+      }
+    </style>
+    <body>
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="nav-brand">
+            <img src="assets/fitlife-icon.png" alt="FitLife Gym" />
+            <a href="index.html"><h1>FitLife</h1></a>
+          </div>
+
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="service.html" class="nav-link">Services</a>
+            </li>
+            <li class="nav-item">
+              <a href="trainers.html" class="nav-link">Trainers</a>
+            </li>
+            <li class="nav-item">
+              <a href="pricing.html" class="nav-link">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link nav-contact">Contact Us</a>
+            </li>
+          </ul>
+
+          <button class="menu-toggle" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+      <!-- Main HTML Structure -->
+      <main class="classes-page">
+        <!-- Hero Section -->
+        <section class="classes-hero">
+          <div class="classes-hero__wrapper">
+            <div class="classes-hero__content">
+              <span class="classes-hero__label">Our Classes</span>
+              <h1 class="classes-hero__title">
+                Transform Your Body With Expert-Led Classes
+              </h1>
+              <p class="classes-hero__description">
+                Choose from over 50+ weekly classes designed to challenge and
+                inspire you. Whether you're a beginner or advanced, we have the
+                perfect class for you.
+              </p>
+              <div class="classes-hero__stats">
+                <div class="hero-stat">
+                  <span class="hero-stat__number">50+</span>
+                  <span class="hero-stat__label">Weekly Classes</span>
+                </div>
+                <div class="hero-stat">
+                  <span class="hero-stat__number">15+</span>
+                  <span class="hero-stat__label">Expert Trainers</span>
+                </div>
+                <div class="hero-stat">
+                  <span class="hero-stat__number">1000+</span>
+                  <span class="hero-stat__label">Happy Members</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Class Categories -->
+        <section class="classes-categories">
+          <div class="classes-categories__wrapper">
+            <header class="classes-categories__header">
+              <h2 class="classes-categories__title">
+                Explore Our Class Categories
+              </h2>
+              <p class="classes-categories__description">
+                From high-intensity workouts to mindful movement, discover the
+                perfect class to achieve your fitness goals.
+              </p>
+            </header>
+
+            <div class="classes-categories__grid">
+              <!-- Strength Training -->
+              <article class="category-card" data-category="strength">
+                <img
+                  src="assets/Strength.png"
+                  alt="Strength Training"
+                  class="category-card__image"
+                />
+                <div class="category-card__content">
+                  <h3 class="category-card__title">Strength Training</h3>
+                  <p class="category-card__description">
+                    Build muscle, increase strength, and boost your metabolism
+                    with our expert-led strength training classes.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Cardio -->
+              <article class="category-card" data-category="cardio">
+                <img
+                  src="assets/Cardio.png"
+                  alt="Cardio Classes"
+                  class="category-card__image"
+                />
+                <div class="category-card__content">
+                  <h3 class="category-card__title">Cardio & HIIT</h3>
+                  <p class="category-card__description">
+                    Torch calories and improve endurance with high-energy cardio
+                    and HIIT workouts.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Yoga -->
+              <article class="category-card" data-category="yoga">
+                <img
+                  src="assets/Yoga.png"
+                  alt="Yoga Classes"
+                  class="category-card__image"
+                />
+                <div class="category-card__content">
+                  <h3 class="category-card__title">Yoga & Flexibility</h3>
+                  <p class="category-card__description">
+                    Find balance, improve flexibility, and reduce stress with
+                    our variety of yoga classes.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Class Schedule -->
+        <section class="class-schedule" id="schedule">
+          <div class="class-schedule__wrapper">
+            <header class="class-schedule__header">
+              <h2 class="class-schedule__title">Class Schedule</h2>
+              <p class="class-schedule__description">
+                Find the perfect time for your workout with our flexible class
+                schedule.
+              </p>
+            </header>
+
+            <div class="schedule-filters">
+              <button class="schedule-filter active" data-day="all">
+                All Days
+              </button>
+              <button class="schedule-filter" data-day="monday">Monday</button>
+              <button class="schedule-filter" data-day="tuesday">
+                Tuesday
+              </button>
+              <button class="schedule-filter" data-day="wednesday">
+                Wednesday
+              </button>
+              <button class="schedule-filter" data-day="thursday">
+                Thursday
+              </button>
+              <button class="schedule-filter" data-day="friday">Friday</button>
+              <button class="schedule-filter" data-day="saturday">
+                Saturday
+              </button>
+              <button class="schedule-filter" data-day="sunday">Sunday</button>
+            </div>
+
+            <div class="schedule-table-wrapper">
+              <table class="schedule-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Class</th>
+                    <th>Trainer</th>
+                    <th>Duration</th>
+                    <th>Level</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="scheduleTableBody">
+                  <!-- Schedule data will be populated by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Class Modal -->
+        <div class="class-modal" id="classModal">
+          <div class="class-modal__content">
+            <button class="class-modal__close" id="modalClose">×</button>
+            <h3 class="class-modal__title">Class Name</h3>
+            <div class="class-modal__details">
+              <div class="class-modal__detail">
+                <svg class="class-modal__detail-icon"><!-- Clock icon --></svg>
+                <span>Duration: <strong>45 minutes</strong></span>
+              </div>
+              <div class="class-modal__detail">
+                <svg class="class-modal__detail-icon"><!-- Level icon --></svg>
+                <span>Level: <strong>Intermediate</strong></span>
+              </div>
+              <div class="class-modal__detail">
+                <svg class="class-modal__detail-icon">
+                  <!-- Trainer icon -->
+                </svg>
+                <span>Trainer: <strong>John Smith</strong></span>
+              </div>
+            </div>
+            <p class="class-modal__description">
+              Detailed class description will be displayed here.
+            </p>
+            <button class="class-modal__button">Book Now</button>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <!-- Background Elements -->
+        <div class="footer__bg">
+          <div class="footer_bg-circle footer_bg-circle--1"></div>
+          <div class="footer_bg-circle footer_bg-circle--2"></div>
+        </div>
+
+        <div class="footer__wrapper">
+          <!-- Main Footer Content -->
+          <div class="footer__content">
+            <!-- Brand Section -->
+            <div class="footer__brand">
+              <a href="index.html" class="footer__logo">
+                <img src="assets/FitLife.png" alt="FitLife Logo" />
+              </a>
+              <p class="footer__description">
+                Your premier destination for fitness excellence. Transform your
+                life with our expert trainers and state-of-the-art facilities.
+              </p>
+              <div class="footer__social">
+                <a href="#" class="footer__social-link">
+                  <svg class="footer__social-icon" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="footer__social-link">
+                  <svg class="footer__social-icon" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="footer__social-link">
+                  <svg class="footer__social-icon" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="footer__social-link">
+                  <svg class="footer__social-icon" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19M18.5,18.5V13.2A3.26,3.26 0 0,0 15.24,9.94C14.39,9.94 13.4,10.46 12.92,11.24V10.13H10.13V18.5H12.92V13.57C12.92,12.8 13.54,12.17 14.31,12.17A1.4,1.4 0 0,1 15.71,13.57V18.5H18.5M6.88,8.56A1.68,1.68 0 0,0 8.56,6.88C8.56,5.95 7.81,5.19 6.88,5.19A1.69,1.69 0 0,0 5.19,6.88C5.19,7.81 5.95,8.56 6.88,8.56M8.27,18.5V10.13H5.5V18.5H8.27Z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer__links">
+              <h3 class="footer__links-title">Quick Links</h3>
+              <ul class="footer__links-list">
+                <li class="footer__links-item">
+                  <a href="index.html" class="footer__link">Home</a>
+                </li>
+                <li class="footer__links-item">
+                  <a href="about-us.html" class="footer__link">About Us</a>
+                </li>
+                <li class="footer__links-item">
+                  <a href="Classes.html" class="footer__link">Classes</a>
+                </li>
+                <li class="footer__links-item">
+                  <a href="trainers.html" class="footer__link">Trainers</a>
+                </li>
+                <li class="footer__links-item">
+                  <a href="schedule.html" class="footer__link">Schedule</a>
+                </li>
+                <li class="footer__links-item">
+                  <a href="contact.html" class="footer__link">Contact</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="footer__links">
+              <h3 class="footer__links-title">Services</h3>
+              <ul class="footer__links-list">
+                <li class="footer__links-item">
+                  <a href="under-contraction.html" class="footer__link"
+                    >Personal Training</a
+                  >
+                </li>
+                <li class="footer__links-item">
+                  <a href="under-contraction.html" class="footer__link"
+                    >Group Classes</a
+                  >
+                </li>
+                <li class="footer__links-item">
+                  <a href="under-contraction.html" class="footer__link"
+                    >Nutrition Planning</a
+                  >
+                </li>
+                <li class="footer__links-item">
+                  <a href="under-contraction.html" class="footer__link"
+                    >Fitness Assessment</a
+                  >
+                </li>
+                <li class="footer__links-item">
+                  <a href="under-contraction.html" class="footer__link"
+                    >Weight Loss Programs</a
+                  >
+                </li>
+                <li class="footer__links-item">
+                  <a href="bmi-calculator.html" class="footer__link"
+                    >BMI calculator</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer__newsletter">
+              <h3 class="footer__newsletter-title">Newsletter</h3>
+              <p class="footer__newsletter-description">
+                Subscribe to our newsletter and get the latest updates on
+                fitness tips, special offers, and upcoming events.
+              </p>
+              <form class="footer__newsletter-form" id="newsletterForm">
+                <input
+                  type="email"
+                  class="footer__newsletter-input"
+                  placeholder="Enter your email"
+                  required
+                />
+                <button type="submit" class="footer__newsletter-button">
+                  Subscribe
+                </button>
+              </form>
+              <div class="newsletter-success" id="newsletterSuccess">
+                Thank you for subscribing to our newsletter!
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Bar -->
+          <div class="footer__bottom">
+            <p class="footer__copyright">
+              © 2025 FitLife. All rights reserved.
+            </p>
+            <div class="footer__bottom-links">
+              <a href="privacy-policy.html" class="footer__bottom-link"
+                >Privacy Policy</a
+              >
+              <a href="terms-of-service.html" class="footer__bottom-link"
+                >Terms of Service</a
+              >
+              <a href="404.html" class="footer__bottom-link">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <script>
+        // Sample class schedule data
+        const classSchedule = {
+          monday: [
+            {
+              time: "06:00 AM",
+              class: "Morning HIIT",
+              trainer: "John Smith",
+              duration: "45 min",
+              level: "Intermediate",
+              category: "cardio",
+              description:
+                "Start your day with an energizing HIIT workout that combines cardio and strength exercises.",
+            },
+            {
+              time: "08:00 AM",
+              class: "Yoga Flow",
+              trainer: "Sarah Johnson",
+              duration: "60 min",
+              level: "All Levels",
+              category: "yoga",
+              description:
+                "A balanced yoga session focusing on flexibility and mindfulness.",
+            },
+          ],
+          tuesday: [
+            {
+              time: "07:00 AM",
+              class: "Strength Training",
+              trainer: "Mike Wilson",
+              duration: "50 min",
+              level: "Advanced",
+              category: "strength",
+              description:
+                "Build muscle and increase strength with this intensive workout session.",
+            },
+          ],
+          wednesday: [
+            {
+              time: "06:30 AM",
+              class: "Spin Class",
+              trainer: "Lisa Anderson",
+              duration: "45 min",
+              level: "Intermediate",
+              category: "cardio",
+              description:
+                "High-energy indoor cycling class for cardio enthusiasts.",
+            },
+          ],
+        };
+
+        // Initialize schedule
+        function initializeSchedule() {
+          const tableBody = document.getElementById("scheduleTableBody");
+          const currentDay = "all";
+          updateScheduleTable(currentDay);
+        }
+
+        // Update schedule table based on selected day
+        function updateScheduleTable(day) {
+          const tableBody = document.getElementById("scheduleTableBody");
+          tableBody.innerHTML = "";
+
+          let classes = [];
+          if (day === "all") {
+            Object.values(classSchedule).forEach((dayClasses) => {
+              classes = classes.concat(dayClasses);
+            });
+          } else {
+            classes = classSchedule[day] || [];
+          }
+
+          classes.forEach((classData) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+            <td>${classData.time}</td>
+            <td>
+                <span class="class-badge class-badge--${classData.category}">${
+              classData.class
+            }</span>
+            </td>
+            <td>${classData.trainer}</td>
+            <td>${classData.duration}</td>
+            <td>${classData.level}</td>
+            <td>
+                <button class="schedule-book-btn" data-class='${JSON.stringify(
+                  classData
+                )}'>
+                    Book Now
+                </button>
+            </td>
+        `;
+            tableBody.appendChild(row);
+          });
+        }
+
+        // Modal functionality
+        function initializeModal() {
+          const modal = document.getElementById("classModal");
+          const modalClose = document.getElementById("modalClose");
+
+          function openClassModal(classData) {
+            const modalTitle = modal.querySelector(".class-modal__title");
+            const modalDescription = modal.querySelector(
+              ".class-modal__description"
+            );
+            const modalDetails = modal.querySelectorAll(
+              ".class-modal__detail strong"
+            );
+
+            modalTitle.textContent = classData.class;
+            modalDescription.textContent = classData.description;
+            modalDetails[0].textContent = classData.duration;
+            modalDetails[1].textContent = classData.level;
+            modalDetails[2].textContent = classData.trainer;
+
+            modal.classList.add("active");
+          }
+
+          function closeClassModal() {
+            modal.classList.remove("active");
+          }
+
+          // Event Listeners for modal
+          document.addEventListener("click", (e) => {
+            if (e.target.classList.contains("schedule-book-btn")) {
+              const classData = JSON.parse(e.target.dataset.class);
+              openClassModal(classData);
+            }
+          });
+
+          modalClose.addEventListener("click", closeClassModal);
+          modal.addEventListener("click", (e) => {
+            if (e.target === modal) closeClassModal();
+          });
+        }
+
+        // Navigation and UI functionality
+        function initializeNavigation() {
+          const menuToggle = document.querySelector(".menu-toggle");
+          const navMenu = document.querySelector(".nav-menu");
+          const navbar = document.querySelector(".navbar");
+          const body = document.body;
+
+          // Toggle Menu
+          function toggleMenu() {
+            menuToggle.classList.toggle("active");
+            navMenu.classList.toggle("active");
+            body.style.overflow =
+              body.style.overflow === "hidden" ? "" : "hidden";
+          }
+
+          menuToggle.addEventListener("click", toggleMenu);
+
+          // Close menu on link click
+          document.querySelectorAll(".nav-link").forEach((link) => {
+            link.addEventListener("click", () => {
+              menuToggle.classList.remove("active");
+              navMenu.classList.remove("active");
+              body.style.overflow = "";
+            });
+          });
+
+          // Scroll Effects
+          let lastScroll = 0;
+          const scrollThreshold = 50;
+
+          window.addEventListener("scroll", () => {
+            const currentScroll = window.pageYOffset;
+
+            // Add/remove scrolled class
+            navbar.classList.toggle(
+              "scrolled",
+              currentScroll > scrollThreshold
+            );
+
+            // Hide/show navbar on scroll
+            if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
+              navbar.style.transform = "translateY(-100%)";
+            } else {
+              navbar.style.transform = "translateY(0)";
+            }
+
+            lastScroll = currentScroll;
+          });
+        }
+
+        // Filter functionality
+        function initializeFilters() {
+          document.querySelectorAll(".schedule-filter").forEach((filter) => {
+            filter.addEventListener("click", () => {
+              document
+                .querySelector(".schedule-filter.active")
+                .classList.remove("active");
+              filter.classList.add("active");
+              updateScheduleTable(filter.dataset.day);
+            });
+          });
+        }
+
+        // Category card effects
+        function initializeCategoryCards() {
+          document.querySelectorAll(".category-card").forEach((card) => {
+            card.addEventListener("mouseenter", () => {
+              card.querySelector(".category-card__description").style.opacity =
+                "1";
+              card.querySelector(
+                ".category-card__description"
+              ).style.transform = "translateY(0)";
+            });
+
+            card.addEventListener("mouseleave", () => {
+              card.querySelector(".category-card__description").style.opacity =
+                "0";
+              card.querySelector(
+                ".category-card__description"
+              ).style.transform = "translateY(20px)";
+            });
+          });
+        }
+
+        // Smooth scroll functionality
+        function initializeSmoothScroll() {
+          document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+              e.preventDefault();
+              document.querySelector(this.getAttribute("href")).scrollIntoView({
+                behavior: "smooth",
+              });
+            });
+          });
+        }
+
+        // Create and append notification elements
+        function createNotification() {
+          // Create main notification container
+          const notification = document.createElement("div");
+          notification.id = "mobile-notification";
+
+          // Create notification icon
+          const icon = document.createElement("div");
+          icon.className = "notification-icon";
+          icon.innerHTML = `
+        <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+        </svg>
+    `;
+
+          // Create notification content
+          const content = document.createElement("div");
+          content.className = "notification-content";
+          content.innerHTML = `
+        <h3>Mobile View Detected</h3>
+        <p>View Desktop mode for better viewing</p>
+        <span class="brand">Thank you - FitLife</span>
+    `;
+
+          // Create close button
+          const closeBtn = document.createElement("button");
+          closeBtn.className = "notification-close";
+          closeBtn.innerHTML = `
+        <svg viewBox="0 0 24 24" width="18" height="18">
+            <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        </svg>
+    `;
+
+          // Append elements
+          notification.appendChild(icon);
+          notification.appendChild(content);
+          notification.appendChild(closeBtn);
+          document.body.appendChild(notification);
+
+          // Add styles
+          const styles = document.createElement("style");
+          styles.textContent = `
+        :root {
+            --primary: #ff3366;
+            --primary-light: #ff4d7f;
+            --dark: #0a0a0a;
+            --light: #ffffff;
+        }
+
+        #mobile-notification {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, var(--dark) 0%, #1a1a1a 100%);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            width: 90%;
+            max-width: 420px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .notification-icon {
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(255, 51, 102, 0.3);
+        }
+
+        .notification-icon svg {
+            color: var(--light);
+        }
+
+        .notification-content {
+            margin-left: 20px;
+            color: var(--light);
+        }
+
+        .notification-content h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .notification-content p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+
+        .notification-content .brand {
+            display: block;
+            margin-top: 8px;
+            font-size: 12px;
+            color: var(--primary-light);
+            font-style: italic;
+        }
+
+        .notification-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--light);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .notification-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -40%);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.05); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        #mobile-notification:hover {
+            animation: pulse 2s infinite;
+        }
+
+        @media (max-width: 480px) {
+            #mobile-notification {
+                width: 85%;
+                padding: 16px;
+            }
+        }
+    `;
+          document.head.appendChild(styles);
+        }
+
+        // Function to show notification only on mobile devices
+        function showMobileNotification() {
+          const notification = document.getElementById("mobile-notification");
+          if (window.innerWidth <= 768) {
+            notification.style.display = "block";
+
+            // Auto-hide after 10 seconds
+            setTimeout(() => {
+              notification.style.animation =
+                "fadeOut 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards";
+              setTimeout(() => {
+                notification.style.display = "none";
+              }, 500);
+            }, 10000);
+          }
+        }
+
+        // Initialize notification
+        document.addEventListener("DOMContentLoaded", () => {
+          createNotification();
+          showMobileNotification();
+
+          // Handle close button click
+          document
+            .querySelector(".notification-close")
+            .addEventListener("click", () => {
+              const notification = document.getElementById(
+                "mobile-notification"
+              );
+              notification.style.animation =
+                "fadeOut 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards";
+              setTimeout(() => {
+                notification.style.display = "none";
+              }, 500);
+            });
+
+          // Check window resize for responsive behavior
+          window.addEventListener("resize", showMobileNotification);
+        });
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener("DOMContentLoaded", () => {
+          initializeSchedule();
+          initializeModal();
+          initializeNavigation();
+          initializeFilters();
+          initializeCategoryCards();
+          initializeSmoothScroll();
+        });
+      </script>
+    </body>
+  </head>
+</html>

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service - FitnessHub</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      /* Core Styles */
+      :root {
+        --primary: #ff3366;
+        --secondary: #2e3192;
+        --text-light: rgba(255, 255, 255, 0.7);
+        --bg-dark: #0a0a0a;
+        --bg-darker: #050505;
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "GeneralSans", sans-serif;
+        background: var(--bg-dark);
+        color: #ffffff;
+        line-height: 1.6;
+      }
+
+      /* Terms Hero Section */
+      .terms-hero {
+        min-height: 40vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+          url("terms-hero.jpg") center/cover;
+        display: flex;
+        align-items: center;
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .terms-hero__wrapper {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 80px);
+      }
+
+      .terms-hero__content {
+        max-width: 800px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .terms-hero__label {
+        display: inline-block;
+        padding: 8px 16px;
+        background: rgba(255, 51, 102, 0.1);
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        margin-bottom: 24px;
+      }
+
+      .terms-hero__title {
+        font-family: "ClashDisplay", sans-serif;
+        font-size: clamp(36px, 5vw, 56px);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 24px;
+      }
+
+      .terms-hero__description {
+        font-size: clamp(16px, 2vw, 18px);
+        color: var(--text-light);
+        max-width: 600px;
+      }
+
+      /* Terms Content Section */
+      .terms-content {
+        padding: 100px 0;
+        background: var(--bg-darker);
+      }
+
+      .terms-content__wrapper {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 80px);
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 60px;
+      }
+
+      /* Table of Contents */
+      .terms-toc {
+        position: sticky;
+        top: 100px;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 20px;
+        padding: 30px;
+        height: fit-content;
+      }
+
+      .terms-toc__title {
+        font-family: "ClashDisplay", sans-serif;
+        font-size: 20px;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .terms-toc__list {
+        list-style: none;
+      }
+
+      .terms-toc__item {
+        margin-bottom: 16px;
+      }
+
+      .terms-toc__link {
+        color: var(--text-light);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: var(--transition);
+        font-size: 15px;
+        padding: 8px 12px;
+        border-radius: 6px;
+      }
+
+      .terms-toc__link:hover,
+      .terms-toc__link.active {
+        color: var(--primary);
+        background: rgba(255, 51, 102, 0.1);
+        transform: translateX(5px);
+      }
+
+      /* Terms Main Content */
+      .terms-main {
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 30px;
+        padding: 60px;
+      }
+
+      .terms-section {
+        margin-bottom: 60px;
+        scroll-margin-top: 100px;
+      }
+
+      .terms-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .terms-section__title {
+        font-family: "ClashDisplay", sans-serif;
+        font-size: 28px;
+        margin-bottom: 24px;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .terms-section__title i {
+        color: var(--primary);
+        font-size: 24px;
+      }
+
+      .terms-section__content {
+        color: var(--text-light);
+      }
+
+      .terms-section__content p {
+        margin-bottom: 20px;
+      }
+
+      .terms-section__content ul,
+      .terms-section__content ol {
+        margin-bottom: 20px;
+        padding-left: 20px;
+      }
+
+      .terms-section__content li {
+        margin-bottom: 12px;
+      }
+
+      .terms-section__content strong {
+        color: #ffffff;
+      }
+
+      .terms-section__content a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .terms-section__content a:hover {
+        text-decoration: underline;
+      }
+
+      /* Important Notice Box */
+      .terms-notice {
+        background: rgba(255, 51, 102, 0.1);
+        border-left: 4px solid var(--primary);
+        padding: 24px;
+        border-radius: 0 8px 8px 0;
+        margin: 40px 0;
+      }
+
+      .terms-notice__title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--primary);
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+
+      .terms-notice__content {
+        color: var(--text-light);
+      }
+
+      /* Version History */
+      .terms-version {
+        margin-top: 40px;
+        padding-top: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .terms-version__item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+
+      .terms-version__date {
+        min-width: 120px;
+        padding: 4px 12px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 4px;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      .terms-version__changes {
+        flex: 1;
+        font-size: 14px;
+        color: var(--text-light);
+      }
+
+      /* Quick Actions */
+      .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 40px;
+      }
+
+      .quick-action {
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 16px;
+        padding: 24px;
+        text-align: center;
+        transition: var(--transition);
+        cursor: pointer;
+      }
+
+      .quick-action:hover {
+        background: rgba(255, 255, 255, 0.05);
+        transform: translateY(-5px);
+      }
+
+      .quick-action__icon {
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 51, 102, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+        color: var(--primary);
+        font-size: 20px;
+      }
+
+      .quick-action__title {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .quick-action__description {
+        font-size: 14px;
+        color: var(--text-light);
+      }
+
+      /* Print Styles */
+      @media print {
+        .terms-toc,
+        .quick-actions {
+          display: none;
+        }
+
+        .terms-content__wrapper {
+          grid-template-columns: 1fr;
+        }
+
+        .terms-main {
+          padding: 0;
+          background: none;
+        }
+
+        body {
+          background: white;
+          color: black;
+        }
+
+        .terms-section__content {
+          color: black;
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .terms-content__wrapper {
+          grid-template-columns: 1fr;
+        }
+
+        .terms-toc {
+          position: static;
+          margin-bottom: 40px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .terms-main {
+          padding: 30px;
+        }
+
+        .quick-actions {
+          grid-template-columns: 1fr;
+        }
+
+        .terms-section__title {
+          font-size: 24px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .terms-hero {
+          min-height: 30vh;
+          padding: 60px 0;
+        }
+
+        .terms-main {
+          padding: 20px;
+        }
+
+        .terms-notice {
+          padding: 16px;
+        }
+      }
+
+      /* Back to Top Button */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        z-index: 100;
+      }
+
+      .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        transform: translateY(-5px);
+      }
+
+      @media (max-width: 768px) {
+        .back-to-top {
+          bottom: 20px;
+          right: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="terms-page">
+      <!-- Hero Section -->
+      <section class="terms-hero">
+        <div class="terms-hero__wrapper">
+          <div class="terms-hero__content">
+            <span class="terms-hero__label">Terms of Service</span>
+            <h1 class="terms-hero__title">Our Commitment to You</h1>
+            <p class="terms-hero__description">
+              Please read these terms carefully before using our services. These
+              terms govern your use of FitnessHub's platform and services.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Terms Content Section -->
+      <section class="terms-content">
+        <div class="terms-content__wrapper">
+          <!-- Table of Contents -->
+          <aside class="terms-toc">
+            <h2 class="terms-toc__title">Contents</h2>
+            <ul class="terms-toc__list">
+              <li class="terms-toc__item">
+                <a href="#acceptance" class="terms-toc__link">
+                  <i class="fas fa-check-circle"></i>
+                  Acceptance of Terms
+                </a>
+              </li>
+              <li class="terms-toc__item">
+                <a href="#services" class="terms-toc__link">
+                  <i class="fas fa-dumbbell"></i>
+                  Services Description
+                </a>
+              </li>
+              <li class="terms-toc__item">
+                <a href="#eligibility" class="terms-toc__link">
+                  <i class="fas fa-user-check"></i>
+                  User Eligibility
+                </a>
+              </li>
+              <li class="terms-toc__item">
+                <a href="#accounts" class="terms-toc__link">
+                  <i class="fas fa-user-circle"></i>
+                  Account Management
+                </a>
+              </li>
+              <li class="terms-toc__item">
+                <a href="#payments" class="terms-toc__link">
+                  <i class="fas fa-credit-card"></i>
+                  Payment Terms
+                </a>
+              </li>
+              <li class="terms-toc__item">
+                <a href="#conduct" class="terms-toc__link">
+                  <i class="fas fa-shield-alt"></i>
+                  User Conduct
+                </a>
+              </li>
+              <li class="terms-toc__item">
+                <a href="#intellectual" class="terms-toc__link">
+                  <i class="fas fa-copyright"></i>
+                  Intellectual Property
+                </a>
+              </li>
+              <li class="terms-toc__item">
+                <a href="#termination" class="terms-toc__link">
+                  <i class="fas fa-ban"></i>
+                  Termination
+                </a>
+              </li>
+              <li class="terms-toc__item">
+                <a href="#liability" class="terms-toc__link">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  Limitation of Liability
+                </a>
+              </li>
+              <li class="terms-toc__item">
+                <a href="#changes" class="terms-toc__link">
+                  <i class="fas fa-sync-alt"></i>
+                  Changes to Terms
+                </a>
+              </li>
+            </ul>
+          </aside>
+
+          <!-- Main Content -->
+          <div class="terms-main">
+            <!-- Important Notice -->
+            <div class="terms-notice">
+              <div class="terms-notice__title">
+                <i class="fas fa-exclamation-circle"></i>
+                Important Notice
+              </div>
+              <div class="terms-notice__content">
+                By accessing or using FitnessHub's services, you agree to be
+                bound by these Terms of Service. If you disagree with any part
+                of the terms, you may not access our services.
+              </div>
+            </div>
+
+            <!-- Terms Sections -->
+            <section id="acceptance" class="terms-section">
+              <h2 class="terms-section__title">
+                <i class="fas fa-check-circle"></i>
+                Acceptance of Terms
+              </h2>
+              <div class="terms-section__content">
+                <p>
+                  Welcome to FitnessHub. These Terms of Service govern your use
+                  of our website, mobile application, and services. By accessing
+                  or using our services, you agree to be bound by these terms.
+                </p>
+                <p>
+                  These terms constitute a legally binding agreement between you
+                  and FitnessHub. If you do not agree to these terms, please do
+                  not use our services.
+                </p>
+              </div>
+            </section>
+
+            <!-- Version History -->
+            <div class="terms-version">
+              <h3 class="terms-section__title">
+                <i class="fas fa-history"></i>
+                Version History
+              </h3>
+              <div class="terms-version__item">
+                <div class="terms-version__date">March 8, 2024</div>
+                <div class="terms-version__changes">
+                  Updated payment terms and added new user conduct guidelines
+                </div>
+              </div>
+              <div class="terms-version__item">
+                <div class="terms-version__date">January 15, 2024</div>
+                <div class="terms-version__changes">
+                  Initial release of Terms of Service
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+              <div class="quick-action" onclick="window.print()">
+                <div class="quick-action__icon">
+                  <i class="fas fa-download"></i>
+                </div>
+                <h3 class="quick-action__title">Download Terms</h3>
+                <p class="quick-action__description">
+                  Get a PDF copy for your records
+                </p>
+              </div>
+
+              <div class="quick-action">
+                <div class="quick-action__icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <h3 class="quick-action__title">Contact Legal Team</h3>
+                <p class="quick-action__description">
+                  Questions about our terms?
+                </p>
+              </div>
+
+              <div class="quick-action">
+                <div class="quick-action__icon">
+                  <i class="fas fa-history"></i>
+                </div>
+                <h3 class="quick-action__title">Previous Versions</h3>
+                <p class="quick-action__description">View historical changes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Back to Top Button -->
+      <button class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const backToTop = document.querySelector(".back-to-top");
+
+        // Show/hide back to top button
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 300) {
+            backToTop.classList.add("visible");
+          } else {
+            backToTop.classList.remove("visible");
+          }
+        });
+
+        // Scroll to top when button is clicked
+        backToTop.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll(".terms-toc__link").forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            const targetSection = document.querySelector(targetId);
+
+            window.scrollTo({
+              top: targetSection.offsetTop - 100,
+              behavior: "smooth",
+            });
+
+            // Update active state
+            document.querySelectorAll(".terms-toc__link").forEach((link) => {
+              link.classList.remove("active");
+            });
+            this.classList.add("active");
+          });
+        });
+
+        // Highlight current section on scroll
+        window.addEventListener("scroll", () => {
+          const sections = document.querySelectorAll(".terms-section");
+          const tocLinks = document.querySelectorAll(".terms-toc__link");
+
+          sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 150 && rect.bottom >= 150) {
+              const targetLink = document.querySelector(
+                `.terms-toc__link[href="#${section.id}"]`
+              );
+              tocLinks.forEach((link) => link.classList.remove("active"));
+              targetLink?.classList.add("active");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

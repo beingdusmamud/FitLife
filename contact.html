@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Contact Us - FitLife</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/fitlife-icon.png" />
+    <style>
+      /* Core Styles */
+      :root {
+        --primary: #ff3366;
+        --secondary: #2e3192;
+        --text-light: rgba(255, 255, 255, 0.7);
+        --bg-dark: #0a0a0a;
+        --bg-darker: #050505;
+        --success: #28a745;
+        --error: #dc3545;
+        --transitions: all 0.3s ease;
+        --primary-light: #ff4d7f;
+        --dark: #0a0a0a;
+        --light: #ffffff;
+        --glass-bg: rgba(10, 10, 10, 0.92);
+        --glass-overlay: rgba(255, 255, 255, 0.03);
+
+        /* Typography */
+        --font-title: "ClashDisplay", sans-serif;
+        --font-body: "GeneralSans", sans-serif;
+
+        /* Sizes */
+        --nav-height-desktop: 90px;
+        --nav-height-mobile: 70px;
+
+        /* Effects */
+        --blur: 20px;
+        --transition: 0.4s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "GeneralSans", sans-serif;
+        background: var(--bg-dark);
+        color: #ffffff;
+        line-height: 1.6;
+      }
+
+      /* Core Styles */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: var(--nav-height-desktop);
+        z-index: 1000;
+        background: transparent;
+        transition: all var(--transition);
+      }
+
+      .nav-container {
+        max-width: 1440px;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 max(24px, 5vw);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* Logo Styles */
+      .nav-brand {
+        position: relative;
+        z-index: 1002;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .nav-brand img {
+        height: 48px;
+        width: auto;
+        border-radius: 50%;
+        transition: all var(--transition);
+      }
+
+      .nav-brand h1 {
+        font-family: "Montserrat", serif;
+        font-size: clamp(24px, 2.5vw, 32px);
+        font-weight: 700;
+        color: var(--light);
+        letter-spacing: -0.03em;
+        text-decoration: none !important;
+      }
+
+      .nav-brand a {
+        text-decoration: none;
+      }
+
+      /* Desktop Navigation */
+      .nav-menu {
+        display: flex;
+        gap: clamp(32px, 4vw, 48px);
+        align-items: center;
+        list-style: none;
+      }
+
+      .nav-link {
+        font-family: var(--font-body);
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--light);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 8px 0;
+        position: relative;
+        transition: color var(--transition);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--primary);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform var(--transition);
+      }
+
+      .nav-link:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      /* Mobile Menu Toggle */
+      .menu-toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        width: 32px;
+        height: 32px;
+        position: relative;
+        cursor: pointer;
+        z-index: 1002;
+      }
+
+      .menu-toggle span {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: var(--light);
+        transition: all var(--transition);
+      }
+
+      .menu-toggle span:nth-child(1) {
+        top: 6px;
+      }
+      .menu-toggle span:nth-child(2) {
+        top: 15px;
+      }
+      .menu-toggle span:nth-child(3) {
+        top: 24px;
+      }
+
+      /* Mobile Navigation */
+      @media screen and (max-width: 1024px) {
+        .navbar {
+          height: var(--nav-height-mobile);
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .nav-menu {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: var(--glass-bg2);
+          backdrop-filter: blur(var(--blur));
+          -webkit-backdrop-filter: blur(var(--blur));
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: clamp(32px, 5vh, 48px);
+          padding: 80px 24px;
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          transition: all var(--transition);
+        }
+
+        .nav-menu::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: var(--glass-overlay);
+          z-index: -1;
+        }
+
+        .nav-menu.active {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: all;
+        }
+
+        .nav-link {
+          font-family: var(--font-title);
+          font-size: clamp(32px, 6vw, 42px);
+          font-weight: 600;
+          text-transform: none;
+          letter-spacing: -0.02em;
+          transform: translateY(30px);
+          opacity: 0;
+          transition: all var(--transition);
+        }
+
+        .nav-menu.active .nav-link {
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+        /* Staggered Animation for Links */
+        .nav-menu.active .nav-item:nth-child(1) .nav-link {
+          transition-delay: 0.1s;
+        }
+        .nav-menu.active .nav-item:nth-child(2) .nav-link {
+          transition-delay: 0.2s;
+        }
+        .nav-menu.active .nav-item:nth-child(3) .nav-link {
+          transition-delay: 0.3s;
+        }
+        .nav-menu.active .nav-item:nth-child(4) .nav-link {
+          transition-delay: 0.4s;
+        }
+        .nav-menu.active .nav-item:nth-child(5) .nav-link {
+          transition-delay: 0.5s;
+        }
+
+        /* Active Menu Toggle */
+        .menu-toggle.active span:nth-child(1) {
+          transform: translateY(9px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+          transform: translateY(-9px) rotate(-45deg);
+        }
+      }
+
+      /* Mobile Optimizations */
+      @media screen and (max-width: 768px) {
+        .nav-brand img {
+          height: 40px;
+        }
+
+        .nav-brand h1 {
+          font-size: clamp(20px, 5vw, 24px);
+        }
+
+        .nav-menu {
+          padding: 64px 20px;
+        }
+
+        .nav-link {
+          font-size: clamp(28px, 7vw, 36px);
+        }
+      }
+
+      /* Special Contact Button */
+      .nav-contact {
+        background: var(--primary);
+        color: var(--light);
+        padding: 12px 24px;
+        border-radius: 4px;
+        font-weight: 600;
+        transition: all var(--transition);
+      }
+
+      .nav-contact:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+      }
+
+      .nav-contact::after {
+        display: none;
+      }
+
+      /* Scrolled State */
+      .navbar.scrolled {
+        background: var(--glass-bg);
+        backdrop-filter: blur(var(--blur2));
+        -webkit-backdrop-filter: blur(var(--blur2));
+        height: var(--nav-height-mobile);
+      }
+
+      .navbar.scrolled .nav-brand img {
+        height: 40px;
+      }
+
+      /* Footer Section Styles */
+      .footer {
+        background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+        padding: 80px 0 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .footer__wrapper {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 80px);
+      }
+
+      /* Main Footer Content */
+      .footer__content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 60px;
+        padding-bottom: 60px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Brand Section */
+      .footer__brand {
+        max-width: 300px;
+      }
+
+      .footer__logo {
+        display: inline-block;
+        margin-bottom: 24px;
+      }
+
+      .footer__logo img {
+        height: 40px;
+        width: auto;
+      }
+
+      .footer__description {
+        font-family: "GeneralSans", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 24px;
+      }
+
+      .footer__social {
+        display: flex;
+        gap: 16px;
+      }
+
+      .footer__social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        transition: all 0.3s ease;
+      }
+
+      .footer__social-link:hover {
+        background: #ff3366;
+        transform: translateY(-3px);
+      }
+
+      .footer__social-icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* Footer Links */
+      .footer__links {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .footer__links-title {
+        font-family: "ClashDisplay", sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 24px;
+      }
+
+      .footer__links-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer__links-item {
+        margin-bottom: 12px;
+      }
+
+      .footer__link {
+        font-family: "GeneralSans", sans-serif;
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .footer__link:hover {
+        color: #ff3366;
+        transform: translateX(5px);
+      }
+
+      /* Newsletter Section */
+      .footer__newsletter {
+        max-width: 400px;
+      }
+
+      .footer__newsletter-title {
+        font-family: "ClashDisplay", sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 16px;
+      }
+
+      .footer__newsletter-description {
+        font-family: "GeneralSans", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 24px;
+      }
+
+      .footer__newsletter-form {
+        display: flex;
+        gap: 12px;
+      }
+
+      .footer__newsletter-input {
+        flex: 1;
+        padding: 12px 16px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        font-family: "GeneralSans", sans-serif;
+        font-size: 16px;
+        color: #ffffff;
+        transition: all 0.3s ease;
+      }
+
+      .footer__newsletter-input:focus {
+        outline: none;
+        border-color: #ff3366;
+        background: rgba(255, 51, 102, 0.05);
+      }
+
+      .footer__newsletter-button {
+        padding: 12px 24px;
+        background: #ff3366;
+        border: none;
+        border-radius: 8px;
+        font-family: "GeneralSans", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .footer__newsletter-button:hover {
+        background: #ff1f4b;
+        transform: translateY(-2px);
+      }
+
+      /* Bottom Bar */
+      .footer__bottom {
+        padding: 24px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer__copyright {
+        font-family: "GeneralSans", sans-serif;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .footer__bottom-links {
+        display: flex;
+        gap: 24px;
+      }
+
+      .footer__bottom-link {
+        font-family: "GeneralSans", sans-serif;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer__bottom-link:hover {
+        color: #ff3366;
+      }
+
+      /* Background Elements */
+      .footer__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        opacity: 0.5;
+      }
+
+      .footer__bg-circle {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 51, 102, 0.1) 0%,
+          transparent 70%
+        );
+      }
+
+      .footer__bg-circle--1 {
+        width: 400px;
+        height: 400px;
+        top: -200px;
+        right: -100px;
+      }
+
+      .footer__bg-circle--2 {
+        width: 300px;
+        height: 300px;
+        bottom: -150px;
+        left: -150px;
+      }
+
+      /* Responsive Adjustments */
+      @media screen and (max-width: 768px) {
+        .footer {
+          padding-top: 60px;
+        }
+
+        .footer__content {
+          gap: 40px;
+        }
+
+        .footer__newsletter-form {
+          flex-direction: column;
+        }
+
+        .footer__bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .footer__bottom-links {
+          justify-content: center;
+        }
+      }
+
+      /* Success Message Animation */
+      @keyframes slideIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .newsletter-success {
+        display: none;
+        animation: slideIn 0.5s ease forwards;
+        color: #4caf50;
+        margin-top: 12px;
+        font-family: "GeneralSans", sans-serif;
+        font-size: 14px;
+      }
+
+      /* Contact Hero Section */
+      .contact-hero {
+        min-height: 50vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("assets/hero.png") center/cover fixed;
+        display: flex;
+        align-items: center;
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-hero__wrapper {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 80px);
+      }
+
+      .contact-hero__content {
+        max-width: 800px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .contact-hero__label {
+        display: inline-block;
+        padding: 8px 16px;
+        background: rgba(255, 51, 102, 0.1);
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        margin-bottom: 24px;
+      }
+
+      .contact-hero__title {
+        font-family: "ClashDisplay", sans-serif;
+        font-size: clamp(40px, 5vw, 64px);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 24px;
+      }
+
+      .contact-hero__description {
+        font-size: clamp(18px, 2vw, 20px);
+        color: var(--text-light);
+        margin-bottom: 40px;
+        max-width: 600px;
+      }
+
+      /* Quick Contact Cards */
+      .quick-contact {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .quick-contact__card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        transition: var(--transitions);
+      }
+
+      .quick-contact__card:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .quick-contact__icon {
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 51, 102, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        color: var(--primary);
+        font-size: 24px;
+      }
+
+      .quick-contact__title {
+        font-family: "ClashDisplay", sans-serif;
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
+
+      .quick-contact__info {
+        color: var(--text-light);
+        margin-bottom: 20px;
+      }
+
+      .quick-contact__link {
+        color: var(--primary);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        transition: var(--transitions);
+      }
+
+      .quick-contact__link:hover {
+        transform: translateX(5px);
+      }
+
+      /* Main Contact Section */
+      .contact-main {
+        padding: 100px 0;
+        background: var(--bg-darker);
+      }
+
+      .contact-main__wrapper {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 80px);
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 60px;
+        align-items: start;
+      }
+
+      /* Contact Info */
+      .contact-info {
+        position: sticky;
+        top: 100px;
+      }
+
+      .contact-info__title {
+        font-family: "ClashDisplay", sans-serif;
+        font-size: 32px;
+        margin-bottom: 24px;
+      }
+
+      .contact-info__description {
+        color: var(--text-light);
+        margin-bottom: 40px;
+      }
+
+      .contact-info__list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .contact-info__item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .contact-info__icon {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 51, 102, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+
+      .contact-info__content {
+        flex: 1;
+      }
+
+      .contact-info__label {
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .contact-info__text {
+        color: var(--text-light);
+      }
+
+      .contact-info__social {
+        margin-top: 40px;
+        display: flex;
+        gap: 16px;
+      }
+
+      .social-link {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-size: 20px;
+        transition: var(--transitions);
+        text-decoration: none;
+      }
+
+      .social-link:hover {
+        background: var(--primary);
+        transform: translateY(-5px);
+      }
+      .social-link a {
+        text-decoration: none;
+      }
+
+      /* Contact Form */
+      .contact-form {
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 30px;
+        padding: 40px;
+      }
+
+      .contact-form__title {
+        font-family: "ClashDisplay", sans-serif;
+        font-size: 24px;
+        margin-bottom: 40px;
+      }
+
+      .form-group {
+        margin-bottom: 24px;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        color: #ffffff;
+        font-size: 16px;
+        transition: var(--transitions);
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: var(--primary);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .form-input::placeholder {
+        color: var(--text-light);
+      }
+
+      textarea.form-input {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .form-button {
+        width: 100%;
+        padding: 18px;
+        background: var(--primary);
+        border: none;
+        border-radius: 12px;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transitions);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .form-button:hover {
+        background: #ff1f4b;
+        transform: translateY(-3px);
+      }
+
+      /* Map Section */
+      .map-section {
+        height: 400px;
+        position: relative;
+        margin-bottom: 30px;
+        padding: 20px;
+        border-radius: 15px;
+      }
+
+      .map-section iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      /* Success Message */
+      .success-message {
+        display: none;
+        background: var(--success);
+        color: #ffffff;
+        padding: 16px;
+        border-radius: 12px;
+        margin-bottom: 24px;
+        text-align: center;
+      }
+
+      /* Error Message */
+      .error-message {
+        display: none;
+        background: var(--error);
+        color: #ffffff;
+        padding: 16px;
+        border-radius: 12px;
+        margin-bottom: 24px;
+        text-align: center;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .contact-main__wrapper {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .contact-info {
+          position: static;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-form {
+          padding: 30px;
+        }
+
+        .quick-contact {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .contact-hero {
+          min-height: 40vh;
+          padding: 60px 0;
+        }
+
+        .contact-form {
+          padding: 20px;
+        }
+
+        .contact-info__social {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <img src="assets/fitlife-icon.png" alt="FitLife Gym" />
+          <a href="index.html"><h1>FitLife</h1></a>
+        </div>
+
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="service.html" class="nav-link">Services</a>
+          </li>
+          <li class="nav-item">
+            <a href="trainers.html" class="nav-link">Trainers</a>
+          </li>
+          <li class="nav-item">
+            <a href="pricing.html" class="nav-link">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link nav-contact">Contact Us</a>
+          </li>
+        </ul>
+
+        <button class="menu-toggle" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+    <main class="contact-page">
+      <!-- Hero Section -->
+      <section class="contact-hero">
+        <div class="contact-hero__wrapper">
+          <div class="contact-hero__content">
+            <span class="contact-hero__label">Get in Touch</span>
+            <h1 class="contact-hero__title">
+              Let's Start Your Fitness Journey Together
+            </h1>
+            <p class="contact-hero__description">
+              Have questions about our programs or want to schedule a visit?
+              We're here to help you achieve your fitness goals.
+            </p>
+
+            <!-- Quick Contact Cards -->
+            <div class="quick-contact">
+              <div class="quick-contact__card">
+                <div class="quick-contact__icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <h3 class="quick-contact__title">Call Us</h3>
+                <p class="quick-contact__info">Available Mon-Fri, 6am-10pm</p>
+                <a href="tel:+1234567890" class="quick-contact__link">
+                  +91 (123) 456-7890
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+
+              <div class="quick-contact__card">
+                <div class="quick-contact__icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <h3 class="quick-contact__title">Email Us</h3>
+                <p class="quick-contact__info">We'll respond within 24 hours</p>
+                <a
+                  href="mailto:beingdusmamud@gmail.com"
+                  class="quick-contact__link"
+                >
+                  beingdusmamud@gmail.com
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+
+              <div class="quick-contact__card">
+                <div class="quick-contact__icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3 class="quick-contact__title">Visit Us</h3>
+                <p class="quick-contact__info">
+                  123 LNB Road, Bongaigaon, AS 783380
+                </p>
+                <a href="#map" class="quick-contact__link">
+                  Get Directions
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Contact Section -->
+      <section class="contact-main">
+        <div class="contact-main__wrapper">
+          <!-- Contact Information -->
+          <div class="contact-info">
+            <h2 class="contact-info__title">Contact Information</h2>
+            <p class="contact-info__description">
+              Ready to transform your life? Reach out to us through any of these
+              channels or fill out the form. We're excited to hear from you!
+            </p>
+
+            <ul class="contact-info__list">
+              <li class="contact-info__item">
+                <div class="contact-info__icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="contact-info__content">
+                  <h4 class="contact-info__label">Working Hours</h4>
+                  <p class="contact-info__text">
+                    Monday - Friday: 6:00 AM - 10:00 PM<br />
+                    Saturday - Sunday: 8:00 AM - 8:00 PM
+                  </p>
+                </div>
+              </li>
+
+              <li class="contact-info__item">
+                <div class="contact-info__icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-info__content">
+                  <h4 class="contact-info__label">Location</h4>
+                  <p class="contact-info__text">
+                    123 LNB Road<br />
+                    Bongaigaon, AS 783380
+                  </p>
+                </div>
+              </li>
+
+              <li class="contact-info__item">
+                <div class="contact-info__icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-info__content">
+                  <h4 class="contact-info__label">Phone</h4>
+                  <p class="contact-info__text">
+                    Main: +91 (123) 456-7890<br />
+                    Support: +91 (234) 567-8901
+                  </p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="contact-info__social">
+              <a href="#" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-youtube"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-x"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form">
+            <h3 class="contact-form__title">Send Us a Message</h3>
+            <div class="success-message" id="successMessage">
+              <i class="fas fa-check-circle"></i>
+              Message sent successfully! We'll get back to you soon.
+            </div>
+            <div class="error-message" id="errorMessage">
+              <i class="fas fa-exclamation-circle"></i>
+              Oops! Something went wrong. Please try again.
+            </div>
+            <form id="contactForm">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label">First Name</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    name="firstName"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Last Name</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    name="lastName"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-input"
+                    name="email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Phone</label>
+                  <input type="tel" class="form-input" name="phone" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Subject</label>
+                <select class="form-input" name="subject" required>
+                  <option value="">Select a subject</option>
+                  <option value="membership">Membership Inquiry</option>
+                  <option value="training">Personal Training</option>
+                  <option value="classes">Group Classes</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Message</label>
+                <textarea class="form-input" name="message" required></textarea>
+              </div>
+              <button type="submit" class="form-button" id="submitButton">
+                <span>Send Message</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Map Section -->
+      <section class="map-section" id="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28573.097496579385!2d90.67447563955077!3d26.495499199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375b9e8a14e4ee6b%3A0x17eb1df2a8e182bd!2sBijni%2C%20Assam!5e0!3m2!1sen!2sin!4v1709900082696!5m2!1sen!2sin"
+          allowfullscreen=""
+          loading="lazy"
+        >
+        </iframe>
+      </section>
+    </main>
+    <footer class="footer">
+      <!-- Background Elements -->
+      <div class="footer__bg">
+        <div class="footer_bg-circle footer_bg-circle--1"></div>
+        <div class="footer_bg-circle footer_bg-circle--2"></div>
+      </div>
+
+      <div class="footer__wrapper">
+        <!-- Main Footer Content -->
+        <div class="footer__content">
+          <!-- Brand Section -->
+          <div class="footer__brand">
+            <a href="index.html" class="footer__logo">
+              <img src="assets/FitLife.png" alt="FitLife Logo" />
+            </a>
+            <p class="footer__description">
+              Your premier destination for fitness excellence. Transform your
+              life with our expert trainers and state-of-the-art facilities.
+            </p>
+            <div class="footer__social">
+              <a href="#" class="footer__social-link">
+                <svg class="footer__social-icon" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="footer__social-link">
+                <svg class="footer__social-icon" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="footer__social-link">
+                <svg class="footer__social-icon" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="footer__social-link">
+                <svg class="footer__social-icon" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19M18.5,18.5V13.2A3.26,3.26 0 0,0 15.24,9.94C14.39,9.94 13.4,10.46 12.92,11.24V10.13H10.13V18.5H12.92V13.57C12.92,12.8 13.54,12.17 14.31,12.17A1.4,1.4 0 0,1 15.71,13.57V18.5H18.5M6.88,8.56A1.68,1.68 0 0,0 8.56,6.88C8.56,5.95 7.81,5.19 6.88,5.19A1.69,1.69 0 0,0 5.19,6.88C5.19,7.81 5.95,8.56 6.88,8.56M8.27,18.5V10.13H5.5V18.5H8.27Z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer__links">
+            <h3 class="footer__links-title">Quick Links</h3>
+            <ul class="footer__links-list">
+              <li class="footer__links-item">
+                <a href="index.html" class="footer__link">Home</a>
+              </li>
+              <li class="footer__links-item">
+                <a href="about-us.html" class="footer__link">About Us</a>
+              </li>
+              <li class="footer__links-item">
+                <a href="Classes.html" class="footer__link">Classes</a>
+              </li>
+              <li class="footer__links-item">
+                <a href="trainers.html" class="footer__link">Trainers</a>
+              </li>
+              <li class="footer__links-item">
+                <a href="schedule.html" class="footer__link">Schedule</a>
+              </li>
+              <li class="footer__links-item">
+                <a href="contact.html" class="footer__link">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Services -->
+          <div class="footer__links">
+            <h3 class="footer__links-title">Services</h3>
+            <ul class="footer__links-list">
+              <li class="footer__links-item">
+                <a href="under-contraction.html" class="footer__link"
+                  >Personal Training</a
+                >
+              </li>
+              <li class="footer__links-item">
+                <a href="under-contraction.html" class="footer__link"
+                  >Group Classes</a
+                >
+              </li>
+              <li class="footer__links-item">
+                <a href="under-contraction.html" class="footer__link"
+                  >Nutrition Planning</a
+                >
+              </li>
+              <li class="footer__links-item">
+                <a href="under-contraction.html" class="footer__link"
+                  >Fitness Assessment</a
+                >
+              </li>
+              <li class="footer__links-item">
+                <a href="under-contraction.html" class="footer__link"
+                  >Weight Loss Programs</a
+                >
+              </li>
+              <li class="footer__links-item">
+                <a href="bmi-calculator.html" class="footer__link"
+                  >BMI calculator</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="footer__newsletter">
+            <h3 class="footer__newsletter-title">Newsletter</h3>
+            <p class="footer__newsletter-description">
+              Subscribe to our newsletter and get the latest updates on fitness
+              tips, special offers, and upcoming events.
+            </p>
+            <form class="footer__newsletter-form" id="newsletterForm">
+              <input
+                type="email"
+                class="footer__newsletter-input"
+                placeholder="Enter your email"
+                required
+              />
+              <button type="submit" class="footer__newsletter-button">
+                Subscribe
+              </button>
+            </form>
+            <div class="newsletter-success" id="newsletterSuccess">
+              Thank you for subscribing to our newsletter!
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer__bottom">
+          <p class="footer__copyright">© 2025 FitLife. All rights reserved.</p>
+          <div class="footer__bottom-links">
+            <a href="privacy-policy.html" class="footer__bottom-link"
+              >Privacy Policy</a
+            >
+            <a href="terms-of-service.html" class="footer__bottom-link"
+              >Terms of Service</a
+            >
+            <a href="404.html" class="footer__bottom-link">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const contactForm = document.getElementById("contactForm");
+        const submitButton = document.getElementById("submitButton");
+        const successMessage = document.getElementById("successMessage");
+        const errorMessage = document.getElementById("errorMessage");
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navMenu = document.querySelector(".nav-menu");
+        const navbar = document.querySelector(".navbar");
+        const body = document.body;
+
+        // Toggle Menu
+        function toggleMenu() {
+          menuToggle.classList.toggle("active");
+          navMenu.classList.toggle("active");
+          body.style.overflow =
+            body.style.overflow === "hidden" ? "" : "hidden";
+        }
+
+        menuToggle.addEventListener("click", toggleMenu);
+
+        // Close menu on link click
+        document.querySelectorAll(".nav-link").forEach((link) => {
+          link.addEventListener("click", () => {
+            menuToggle.classList.remove("active");
+            navMenu.classList.remove("active");
+            body.style.overflow = "";
+          });
+        });
+
+        // Scroll Effects
+        let lastScroll = 0;
+        const scrollThreshold = 50;
+
+        window.addEventListener("scroll", () => {
+          const currentScroll = window.pageYOffset;
+
+          // Add/remove scrolled class
+          navbar.classList.toggle("scrolled", currentScroll > scrollThreshold);
+
+          // Hide/show navbar on scroll
+          if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
+            navbar.style.transform = "translateY(-100%)";
+          } else {
+            navbar.style.transform = "translateY(0)";
+          }
+
+          lastScroll = currentScroll;
+        });
+
+        // Form submission handler
+        contactForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          // Show loading state
+          submitButton.disabled = true;
+          submitButton.innerHTML = `
+                  <span>Sending...</span>
+                  <i class="fas fa-spinner fa-spin"></i>
+              `;
+
+          // Get form data
+          const formData = new FormData(contactForm);
+          const formObject = Object.fromEntries(formData.entries());
+
+          try {
+            // Simulate API call
+            await new Promise((resolve) => setTimeout(resolve, 2000));
+
+            // Show success message
+            successMessage.style.display = "block";
+            errorMessage.style.display = "none";
+            contactForm.reset();
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+              successMessage.style.display = "none";
+            }, 5000);
+          } catch (error) {
+            // Show error message
+            errorMessage.style.display = "block";
+            successMessage.style.display = "none";
+
+            // Hide error message after 5 seconds
+            setTimeout(() => {
+              errorMessage.style.display = "none";
+            }, 5000);
+          } finally {
+            // Reset button state
+            submitButton.disabled = false;
+            submitButton.innerHTML = `
+                      <span>Send Message</span>
+                      <i class="fas fa-paper-plane"></i>
+                  `;
+          }
+        });
+
+        // Form input validation
+        const inputs = contactForm.querySelectorAll(".form-input");
+        inputs.forEach((input) => {
+          input.addEventListener("invalid", (e) => {
+            e.preventDefault();
+            input.classList.add("error");
+          });
+
+          input.addEventListener("input", () => {
+            input.classList.remove("error");
+          });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+              behavior: "smooth",
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
